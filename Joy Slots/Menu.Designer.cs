@@ -50,59 +50,59 @@
             roundEdgesPanel14 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
             pictureBox12 = new PictureBox();
             pictureBox13 = new PictureBox();
-            label44 = new Label();
+            Symbols5_5 = new Label();
             label45 = new Label();
-            label46 = new Label();
+            Symbols5_3 = new Label();
             label47 = new Label();
-            label48 = new Label();
+            Symbols5_4 = new Label();
             label49 = new Label();
             pictureBox11 = new PictureBox();
             pictureBox10 = new PictureBox();
             roundEdgesPanel13 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
-            label38 = new Label();
+            Symbol3_5 = new Label();
             label39 = new Label();
-            label40 = new Label();
+            Symbol3_3 = new Label();
             label41 = new Label();
-            label42 = new Label();
+            Symbol3_4 = new Label();
             label43 = new Label();
             pictureBox9 = new PictureBox();
             roundEdgesPanel12 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
-            label27 = new Label();
+            Symbol4_5 = new Label();
             label28 = new Label();
-            label34 = new Label();
+            Symbol4_3 = new Label();
             label35 = new Label();
-            label36 = new Label();
+            Symbol4_4 = new Label();
             label37 = new Label();
             pictureBox8 = new PictureBox();
             roundEdgesPanel11 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
-            label25 = new Label();
+            Symbol2_5 = new Label();
             label26 = new Label();
-            label29 = new Label();
+            Symbol2_3 = new Label();
             label30 = new Label();
-            label31 = new Label();
+            Symbol2_4 = new Label();
             label33 = new Label();
             pictureBox7 = new PictureBox();
             roundEdgesPanel10 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
-            label24 = new Label();
+            Symbol1_5 = new Label();
             label32 = new Label();
-            label18 = new Label();
+            Symbol1_2 = new Label();
             label19 = new Label();
-            label20 = new Label();
+            Symbol1_3 = new Label();
             label21 = new Label();
-            label22 = new Label();
+            Symbol1_4 = new Label();
             label23 = new Label();
             pictureBox6 = new PictureBox();
             roundEdgesPanel9 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
-            label16 = new Label();
+            Scatter_Dollar_3 = new Label();
             label17 = new Label();
-            label14 = new Label();
+            Scatter_Dollar_4 = new Label();
             label15 = new Label();
-            label12 = new Label();
+            Scatter_Dollar_5 = new Label();
             label13 = new Label();
             label7 = new Label();
             pictureBox5 = new PictureBox();
             roundEdgesPanel8 = new Keyboard_HeatMap.Toolbox.RoundEdgesPanel();
-            label11 = new Label();
+            Scatter_Star_3 = new Label();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -345,6 +345,7 @@
             // 
             // MenuBarPanel
             // 
+            MenuBarPanel.AutoScroll = true;
             MenuBarPanel.Controls.Add(button2);
             MenuBarPanel.Controls.Add(button1);
             MenuBarPanel.Dock = DockStyle.Top;
@@ -390,7 +391,7 @@
             SymbolsInfoPanel.Location = new Point(0, 0);
             SymbolsInfoPanel.Name = "SymbolsInfoPanel";
             SymbolsInfoPanel.Size = new Size(1210, 690);
-            SymbolsInfoPanel.TabIndex = 12;
+            SymbolsInfoPanel.TabIndex = 0;
             // 
             // roundEdgesPanel14
             // 
@@ -398,11 +399,11 @@
             roundEdgesPanel14.BorderRadius = 20;
             roundEdgesPanel14.Controls.Add(pictureBox12);
             roundEdgesPanel14.Controls.Add(pictureBox13);
-            roundEdgesPanel14.Controls.Add(label44);
+            roundEdgesPanel14.Controls.Add(Symbols5_5);
             roundEdgesPanel14.Controls.Add(label45);
-            roundEdgesPanel14.Controls.Add(label46);
+            roundEdgesPanel14.Controls.Add(Symbols5_3);
             roundEdgesPanel14.Controls.Add(label47);
-            roundEdgesPanel14.Controls.Add(label48);
+            roundEdgesPanel14.Controls.Add(Symbols5_4);
             roundEdgesPanel14.Controls.Add(label49);
             roundEdgesPanel14.Controls.Add(pictureBox11);
             roundEdgesPanel14.Controls.Add(pictureBox10);
@@ -410,7 +411,7 @@
             roundEdgesPanel14.Location = new Point(21, 1060);
             roundEdgesPanel14.Name = "roundEdgesPanel14";
             roundEdgesPanel14.Size = new Size(1159, 150);
-            roundEdgesPanel14.TabIndex = 23;
+            roundEdgesPanel14.TabIndex = 0;
             // 
             // pictureBox12
             // 
@@ -432,15 +433,15 @@
             pictureBox13.TabIndex = 25;
             pictureBox13.TabStop = false;
             // 
-            // label44
+            // Symbols5_5
             // 
-            label44.AutoSize = true;
-            label44.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label44.Location = new Point(566, 27);
-            label44.Name = "label44";
-            label44.Size = new Size(108, 32);
-            label44.TabIndex = 24;
-            label44.Text = "x15 RON";
+            Symbols5_5.AutoSize = true;
+            Symbols5_5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbols5_5.Location = new Point(566, 27);
+            Symbols5_5.Name = "Symbols5_5";
+            Symbols5_5.Size = new Size(108, 32);
+            Symbols5_5.TabIndex = 0;
+            Symbols5_5.Text = "x15 RON";
             // 
             // label45
             // 
@@ -449,18 +450,18 @@
             label45.Location = new Point(485, 27);
             label45.Name = "label45";
             label45.Size = new Size(49, 32);
-            label45.TabIndex = 23;
+            label45.TabIndex = 0;
             label45.Text = "5 ●";
             // 
-            // label46
+            // Symbols5_3
             // 
-            label46.AutoSize = true;
-            label46.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label46.Location = new Point(566, 91);
-            label46.Name = "label46";
-            label46.Size = new Size(95, 32);
-            label46.TabIndex = 22;
-            label46.Text = "x1 RON";
+            Symbols5_3.AutoSize = true;
+            Symbols5_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbols5_3.Location = new Point(566, 91);
+            Symbols5_3.Name = "Symbols5_3";
+            Symbols5_3.Size = new Size(95, 32);
+            Symbols5_3.TabIndex = 0;
+            Symbols5_3.Text = "x1 RON";
             // 
             // label47
             // 
@@ -469,18 +470,18 @@
             label47.Location = new Point(485, 91);
             label47.Name = "label47";
             label47.Size = new Size(49, 32);
-            label47.TabIndex = 21;
+            label47.TabIndex = 0;
             label47.Text = "3 ●";
             // 
-            // label48
+            // Symbols5_4
             // 
-            label48.AutoSize = true;
-            label48.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label48.Location = new Point(566, 59);
-            label48.Name = "label48";
-            label48.Size = new Size(95, 32);
-            label48.TabIndex = 20;
-            label48.Text = "x3 RON";
+            Symbols5_4.AutoSize = true;
+            Symbols5_4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbols5_4.Location = new Point(566, 59);
+            Symbols5_4.Name = "Symbols5_4";
+            Symbols5_4.Size = new Size(95, 32);
+            Symbols5_4.TabIndex = 0;
+            Symbols5_4.Text = "x3 RON";
             // 
             // label49
             // 
@@ -489,7 +490,7 @@
             label49.Location = new Point(485, 59);
             label49.Name = "label49";
             label49.Size = new Size(49, 32);
-            label49.TabIndex = 19;
+            label49.TabIndex = 0;
             label49.Text = "4 ●";
             // 
             // pictureBox11
@@ -516,28 +517,28 @@
             // 
             roundEdgesPanel13.BackColor = Color.White;
             roundEdgesPanel13.BorderRadius = 20;
-            roundEdgesPanel13.Controls.Add(label38);
+            roundEdgesPanel13.Controls.Add(Symbol3_5);
             roundEdgesPanel13.Controls.Add(label39);
-            roundEdgesPanel13.Controls.Add(label40);
+            roundEdgesPanel13.Controls.Add(Symbol3_3);
             roundEdgesPanel13.Controls.Add(label41);
-            roundEdgesPanel13.Controls.Add(label42);
+            roundEdgesPanel13.Controls.Add(Symbol3_4);
             roundEdgesPanel13.Controls.Add(label43);
             roundEdgesPanel13.Controls.Add(pictureBox9);
             roundEdgesPanel13.ForeColor = Color.Black;
             roundEdgesPanel13.Location = new Point(21, 904);
             roundEdgesPanel13.Name = "roundEdgesPanel13";
             roundEdgesPanel13.Size = new Size(575, 150);
-            roundEdgesPanel13.TabIndex = 22;
+            roundEdgesPanel13.TabIndex = 0;
             // 
-            // label38
+            // Symbol3_5
             // 
-            label38.AutoSize = true;
-            label38.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label38.Location = new Point(236, 25);
-            label38.Name = "label38";
-            label38.Size = new Size(108, 32);
-            label38.TabIndex = 18;
-            label38.Text = "x70 RON";
+            Symbol3_5.AutoSize = true;
+            Symbol3_5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol3_5.Location = new Point(236, 25);
+            Symbol3_5.Name = "Symbol3_5";
+            Symbol3_5.Size = new Size(108, 32);
+            Symbol3_5.TabIndex = 0;
+            Symbol3_5.Text = "x70 RON";
             // 
             // label39
             // 
@@ -546,18 +547,18 @@
             label39.Location = new Point(155, 25);
             label39.Name = "label39";
             label39.Size = new Size(49, 32);
-            label39.TabIndex = 17;
+            label39.TabIndex = 0;
             label39.Text = "5 ●";
             // 
-            // label40
+            // Symbol3_3
             // 
-            label40.AutoSize = true;
-            label40.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label40.Location = new Point(236, 89);
-            label40.Name = "label40";
-            label40.Size = new Size(95, 32);
-            label40.TabIndex = 14;
-            label40.Text = "x4 RON";
+            Symbol3_3.AutoSize = true;
+            Symbol3_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol3_3.Location = new Point(236, 89);
+            Symbol3_3.Name = "Symbol3_3";
+            Symbol3_3.Size = new Size(95, 32);
+            Symbol3_3.TabIndex = 0;
+            Symbol3_3.Text = "x4 RON";
             // 
             // label41
             // 
@@ -566,18 +567,18 @@
             label41.Location = new Point(155, 89);
             label41.Name = "label41";
             label41.Size = new Size(49, 32);
-            label41.TabIndex = 13;
+            label41.TabIndex = 0;
             label41.Text = "3 ●";
             // 
-            // label42
+            // Symbol3_4
             // 
-            label42.AutoSize = true;
-            label42.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label42.Location = new Point(236, 57);
-            label42.Name = "label42";
-            label42.Size = new Size(95, 32);
-            label42.TabIndex = 12;
-            label42.Text = "x6 RON";
+            Symbol3_4.AutoSize = true;
+            Symbol3_4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol3_4.Location = new Point(235, 57);
+            Symbol3_4.Name = "Symbol3_4";
+            Symbol3_4.Size = new Size(95, 32);
+            Symbol3_4.TabIndex = 0;
+            Symbol3_4.Text = "x6 RON";
             // 
             // label43
             // 
@@ -586,7 +587,7 @@
             label43.Location = new Point(155, 57);
             label43.Name = "label43";
             label43.Size = new Size(49, 32);
-            label43.TabIndex = 11;
+            label43.TabIndex = 0;
             label43.Text = "4 ●";
             // 
             // pictureBox9
@@ -603,28 +604,28 @@
             // 
             roundEdgesPanel12.BackColor = Color.White;
             roundEdgesPanel12.BorderRadius = 20;
-            roundEdgesPanel12.Controls.Add(label27);
+            roundEdgesPanel12.Controls.Add(Symbol4_5);
             roundEdgesPanel12.Controls.Add(label28);
-            roundEdgesPanel12.Controls.Add(label34);
+            roundEdgesPanel12.Controls.Add(Symbol4_3);
             roundEdgesPanel12.Controls.Add(label35);
-            roundEdgesPanel12.Controls.Add(label36);
+            roundEdgesPanel12.Controls.Add(Symbol4_4);
             roundEdgesPanel12.Controls.Add(label37);
             roundEdgesPanel12.Controls.Add(pictureBox8);
             roundEdgesPanel12.ForeColor = Color.Black;
             roundEdgesPanel12.Location = new Point(605, 904);
             roundEdgesPanel12.Name = "roundEdgesPanel12";
             roundEdgesPanel12.Size = new Size(575, 150);
-            roundEdgesPanel12.TabIndex = 21;
+            roundEdgesPanel12.TabIndex = 0;
             // 
-            // label27
+            // Symbol4_5
             // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label27.Location = new Point(236, 25);
-            label27.Name = "label27";
-            label27.Size = new Size(108, 32);
-            label27.TabIndex = 18;
-            label27.Text = "x20 RON";
+            Symbol4_5.AutoSize = true;
+            Symbol4_5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol4_5.Location = new Point(236, 25);
+            Symbol4_5.Name = "Symbol4_5";
+            Symbol4_5.Size = new Size(108, 32);
+            Symbol4_5.TabIndex = 0;
+            Symbol4_5.Text = "x20 RON";
             // 
             // label28
             // 
@@ -633,18 +634,18 @@
             label28.Location = new Point(155, 25);
             label28.Name = "label28";
             label28.Size = new Size(49, 32);
-            label28.TabIndex = 17;
+            label28.TabIndex = 0;
             label28.Text = "5 ●";
             // 
-            // label34
+            // Symbol4_3
             // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label34.Location = new Point(236, 89);
-            label34.Name = "label34";
-            label34.Size = new Size(95, 32);
-            label34.TabIndex = 14;
-            label34.Text = "x2 RON";
+            Symbol4_3.AutoSize = true;
+            Symbol4_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol4_3.Location = new Point(236, 89);
+            Symbol4_3.Name = "Symbol4_3";
+            Symbol4_3.Size = new Size(95, 32);
+            Symbol4_3.TabIndex = 0;
+            Symbol4_3.Text = "x2 RON";
             // 
             // label35
             // 
@@ -653,18 +654,18 @@
             label35.Location = new Point(155, 89);
             label35.Name = "label35";
             label35.Size = new Size(49, 32);
-            label35.TabIndex = 13;
+            label35.TabIndex = 0;
             label35.Text = "3 ●";
             // 
-            // label36
+            // Symbol4_4
             // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label36.Location = new Point(236, 57);
-            label36.Name = "label36";
-            label36.Size = new Size(95, 32);
-            label36.TabIndex = 12;
-            label36.Text = "x4 RON";
+            Symbol4_4.AutoSize = true;
+            Symbol4_4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol4_4.Location = new Point(236, 57);
+            Symbol4_4.Name = "Symbol4_4";
+            Symbol4_4.Size = new Size(95, 32);
+            Symbol4_4.TabIndex = 0;
+            Symbol4_4.Text = "x4 RON";
             // 
             // label37
             // 
@@ -673,7 +674,7 @@
             label37.Location = new Point(155, 57);
             label37.Name = "label37";
             label37.Size = new Size(49, 32);
-            label37.TabIndex = 11;
+            label37.TabIndex = 0;
             label37.Text = "4 ●";
             // 
             // pictureBox8
@@ -690,28 +691,28 @@
             // 
             roundEdgesPanel11.BackColor = Color.White;
             roundEdgesPanel11.BorderRadius = 20;
-            roundEdgesPanel11.Controls.Add(label25);
+            roundEdgesPanel11.Controls.Add(Symbol2_5);
             roundEdgesPanel11.Controls.Add(label26);
-            roundEdgesPanel11.Controls.Add(label29);
+            roundEdgesPanel11.Controls.Add(Symbol2_3);
             roundEdgesPanel11.Controls.Add(label30);
-            roundEdgesPanel11.Controls.Add(label31);
+            roundEdgesPanel11.Controls.Add(Symbol2_4);
             roundEdgesPanel11.Controls.Add(label33);
             roundEdgesPanel11.Controls.Add(pictureBox7);
             roundEdgesPanel11.ForeColor = Color.Black;
             roundEdgesPanel11.Location = new Point(605, 748);
             roundEdgesPanel11.Name = "roundEdgesPanel11";
             roundEdgesPanel11.Size = new Size(575, 150);
-            roundEdgesPanel11.TabIndex = 19;
+            roundEdgesPanel11.TabIndex = 0;
             // 
-            // label25
+            // Symbol2_5
             // 
-            label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label25.Location = new Point(236, 25);
-            label25.Name = "label25";
-            label25.Size = new Size(108, 32);
-            label25.TabIndex = 18;
-            label25.Text = "x70 RON";
+            Symbol2_5.AutoSize = true;
+            Symbol2_5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol2_5.Location = new Point(236, 25);
+            Symbol2_5.Name = "Symbol2_5";
+            Symbol2_5.Size = new Size(108, 32);
+            Symbol2_5.TabIndex = 0;
+            Symbol2_5.Text = "x70 RON";
             // 
             // label26
             // 
@@ -720,18 +721,18 @@
             label26.Location = new Point(155, 25);
             label26.Name = "label26";
             label26.Size = new Size(49, 32);
-            label26.TabIndex = 17;
+            label26.TabIndex = 0;
             label26.Text = "5 ●";
             // 
-            // label29
+            // Symbol2_3
             // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label29.Location = new Point(236, 89);
-            label29.Name = "label29";
-            label29.Size = new Size(95, 32);
-            label29.TabIndex = 14;
-            label29.Text = "x4 RON";
+            Symbol2_3.AutoSize = true;
+            Symbol2_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol2_3.Location = new Point(236, 89);
+            Symbol2_3.Name = "Symbol2_3";
+            Symbol2_3.Size = new Size(95, 32);
+            Symbol2_3.TabIndex = 0;
+            Symbol2_3.Text = "x4 RON";
             // 
             // label30
             // 
@@ -740,18 +741,18 @@
             label30.Location = new Point(155, 89);
             label30.Name = "label30";
             label30.Size = new Size(49, 32);
-            label30.TabIndex = 13;
+            label30.TabIndex = 0;
             label30.Text = "3 ●";
             // 
-            // label31
+            // Symbol2_4
             // 
-            label31.AutoSize = true;
-            label31.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label31.Location = new Point(236, 57);
-            label31.Name = "label31";
-            label31.Size = new Size(95, 32);
-            label31.TabIndex = 12;
-            label31.Text = "x6 RON";
+            Symbol2_4.AutoSize = true;
+            Symbol2_4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol2_4.Location = new Point(236, 57);
+            Symbol2_4.Name = "Symbol2_4";
+            Symbol2_4.Size = new Size(95, 32);
+            Symbol2_4.TabIndex = 0;
+            Symbol2_4.Text = "x6 RON";
             // 
             // label33
             // 
@@ -760,7 +761,7 @@
             label33.Location = new Point(155, 57);
             label33.Name = "label33";
             label33.Size = new Size(49, 32);
-            label33.TabIndex = 11;
+            label33.TabIndex = 0;
             label33.Text = "4 ●";
             // 
             // pictureBox7
@@ -777,30 +778,30 @@
             // 
             roundEdgesPanel10.BackColor = Color.White;
             roundEdgesPanel10.BorderRadius = 20;
-            roundEdgesPanel10.Controls.Add(label24);
+            roundEdgesPanel10.Controls.Add(Symbol1_5);
             roundEdgesPanel10.Controls.Add(label32);
-            roundEdgesPanel10.Controls.Add(label18);
+            roundEdgesPanel10.Controls.Add(Symbol1_2);
             roundEdgesPanel10.Controls.Add(label19);
-            roundEdgesPanel10.Controls.Add(label20);
+            roundEdgesPanel10.Controls.Add(Symbol1_3);
             roundEdgesPanel10.Controls.Add(label21);
-            roundEdgesPanel10.Controls.Add(label22);
+            roundEdgesPanel10.Controls.Add(Symbol1_4);
             roundEdgesPanel10.Controls.Add(label23);
             roundEdgesPanel10.Controls.Add(pictureBox6);
             roundEdgesPanel10.ForeColor = Color.Black;
             roundEdgesPanel10.Location = new Point(21, 748);
             roundEdgesPanel10.Name = "roundEdgesPanel10";
             roundEdgesPanel10.Size = new Size(575, 150);
-            roundEdgesPanel10.TabIndex = 13;
+            roundEdgesPanel10.TabIndex = 0;
             // 
-            // label24
+            // Symbol1_5
             // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label24.Location = new Point(236, 10);
-            label24.Name = "label24";
-            label24.Size = new Size(121, 32);
-            label24.TabIndex = 18;
-            label24.Text = "x500 RON";
+            Symbol1_5.AutoSize = true;
+            Symbol1_5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol1_5.Location = new Point(236, 10);
+            Symbol1_5.Name = "Symbol1_5";
+            Symbol1_5.Size = new Size(121, 32);
+            Symbol1_5.TabIndex = 0;
+            Symbol1_5.Text = "x500 RON";
             // 
             // label32
             // 
@@ -809,18 +810,18 @@
             label32.Location = new Point(155, 10);
             label32.Name = "label32";
             label32.Size = new Size(49, 32);
-            label32.TabIndex = 17;
+            label32.TabIndex = 0;
             label32.Text = "5 ●";
             // 
-            // label18
+            // Symbol1_2
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label18.Location = new Point(236, 106);
-            label18.Name = "label18";
-            label18.Size = new Size(95, 32);
-            label18.TabIndex = 16;
-            label18.Text = "x1 RON";
+            Symbol1_2.AutoSize = true;
+            Symbol1_2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol1_2.Location = new Point(236, 106);
+            Symbol1_2.Name = "Symbol1_2";
+            Symbol1_2.Size = new Size(95, 32);
+            Symbol1_2.TabIndex = 0;
+            Symbol1_2.Text = "x1 RON";
             // 
             // label19
             // 
@@ -829,18 +830,18 @@
             label19.Location = new Point(155, 106);
             label19.Name = "label19";
             label19.Size = new Size(49, 32);
-            label19.TabIndex = 15;
+            label19.TabIndex = 0;
             label19.Text = "2 ●";
             // 
-            // label20
+            // Symbol1_3
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.Location = new Point(236, 74);
-            label20.Name = "label20";
-            label20.Size = new Size(95, 32);
-            label20.TabIndex = 14;
-            label20.Text = "x5 RON";
+            Symbol1_3.AutoSize = true;
+            Symbol1_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol1_3.Location = new Point(236, 74);
+            Symbol1_3.Name = "Symbol1_3";
+            Symbol1_3.Size = new Size(95, 32);
+            Symbol1_3.TabIndex = 0;
+            Symbol1_3.Text = "x5 RON";
             // 
             // label21
             // 
@@ -849,18 +850,18 @@
             label21.Location = new Point(155, 74);
             label21.Name = "label21";
             label21.Size = new Size(49, 32);
-            label21.TabIndex = 13;
+            label21.TabIndex = 0;
             label21.Text = "3 ●";
             // 
-            // label22
+            // Symbol1_4
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label22.Location = new Point(236, 42);
-            label22.Name = "label22";
-            label22.Size = new Size(108, 32);
-            label22.TabIndex = 12;
-            label22.Text = "x25 RON";
+            Symbol1_4.AutoSize = true;
+            Symbol1_4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Symbol1_4.Location = new Point(236, 42);
+            Symbol1_4.Name = "Symbol1_4";
+            Symbol1_4.Size = new Size(108, 32);
+            Symbol1_4.TabIndex = 0;
+            Symbol1_4.Text = "x25 RON";
             // 
             // label23
             // 
@@ -869,7 +870,7 @@
             label23.Location = new Point(155, 42);
             label23.Name = "label23";
             label23.Size = new Size(49, 32);
-            label23.TabIndex = 11;
+            label23.TabIndex = 0;
             label23.Text = "4 ●";
             // 
             // pictureBox6
@@ -886,11 +887,11 @@
             // 
             roundEdgesPanel9.BackColor = Color.White;
             roundEdgesPanel9.BorderRadius = 20;
-            roundEdgesPanel9.Controls.Add(label16);
+            roundEdgesPanel9.Controls.Add(Scatter_Dollar_3);
             roundEdgesPanel9.Controls.Add(label17);
-            roundEdgesPanel9.Controls.Add(label14);
+            roundEdgesPanel9.Controls.Add(Scatter_Dollar_4);
             roundEdgesPanel9.Controls.Add(label15);
-            roundEdgesPanel9.Controls.Add(label12);
+            roundEdgesPanel9.Controls.Add(Scatter_Dollar_5);
             roundEdgesPanel9.Controls.Add(label13);
             roundEdgesPanel9.Controls.Add(label7);
             roundEdgesPanel9.Controls.Add(pictureBox5);
@@ -898,17 +899,17 @@
             roundEdgesPanel9.Location = new Point(21, 592);
             roundEdgesPanel9.Name = "roundEdgesPanel9";
             roundEdgesPanel9.Size = new Size(1159, 150);
-            roundEdgesPanel9.TabIndex = 12;
+            roundEdgesPanel9.TabIndex = 0;
             // 
-            // label16
+            // Scatter_Dollar_3
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(607, 100);
-            label16.Name = "label16";
-            label16.Size = new Size(95, 32);
-            label16.TabIndex = 16;
-            label16.Text = "x5 RON";
+            Scatter_Dollar_3.AutoSize = true;
+            Scatter_Dollar_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Scatter_Dollar_3.Location = new Point(607, 100);
+            Scatter_Dollar_3.Name = "Scatter_Dollar_3";
+            Scatter_Dollar_3.Size = new Size(95, 32);
+            Scatter_Dollar_3.TabIndex = 0;
+            Scatter_Dollar_3.Text = "x5 RON";
             // 
             // label17
             // 
@@ -917,18 +918,18 @@
             label17.Location = new Point(526, 100);
             label17.Name = "label17";
             label17.Size = new Size(49, 32);
-            label17.TabIndex = 15;
+            label17.TabIndex = 0;
             label17.Text = "3 ●";
             // 
-            // label14
+            // Scatter_Dollar_4
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(607, 61);
-            label14.Name = "label14";
-            label14.Size = new Size(108, 32);
-            label14.TabIndex = 14;
-            label14.Text = "x20 RON";
+            Scatter_Dollar_4.AutoSize = true;
+            Scatter_Dollar_4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Scatter_Dollar_4.Location = new Point(607, 61);
+            Scatter_Dollar_4.Name = "Scatter_Dollar_4";
+            Scatter_Dollar_4.Size = new Size(108, 32);
+            Scatter_Dollar_4.TabIndex = 0;
+            Scatter_Dollar_4.Text = "x20 RON";
             // 
             // label15
             // 
@@ -937,18 +938,18 @@
             label15.Location = new Point(526, 61);
             label15.Name = "label15";
             label15.Size = new Size(49, 32);
-            label15.TabIndex = 13;
+            label15.TabIndex = 0;
             label15.Text = "4 ●";
             // 
-            // label12
+            // Scatter_Dollar_5
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(607, 20);
-            label12.Name = "label12";
-            label12.Size = new Size(121, 32);
-            label12.TabIndex = 12;
-            label12.Text = "x100 RON";
+            Scatter_Dollar_5.AutoSize = true;
+            Scatter_Dollar_5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Scatter_Dollar_5.Location = new Point(607, 20);
+            Scatter_Dollar_5.Name = "Scatter_Dollar_5";
+            Scatter_Dollar_5.Size = new Size(121, 32);
+            Scatter_Dollar_5.TabIndex = 0;
+            Scatter_Dollar_5.Text = "x100 RON";
             // 
             // label13
             // 
@@ -957,7 +958,7 @@
             label13.Location = new Point(526, 20);
             label13.Name = "label13";
             label13.Size = new Size(49, 32);
-            label13.TabIndex = 11;
+            label13.TabIndex = 0;
             label13.Text = "5 ●";
             // 
             // label7
@@ -967,7 +968,7 @@
             label7.Location = new Point(189, 61);
             label7.Name = "label7";
             label7.Size = new Size(107, 32);
-            label7.TabIndex = 7;
+            label7.TabIndex = 0;
             label7.Text = "SCATTER";
             // 
             // pictureBox5
@@ -984,7 +985,7 @@
             // 
             roundEdgesPanel8.BackColor = Color.White;
             roundEdgesPanel8.BorderRadius = 20;
-            roundEdgesPanel8.Controls.Add(label11);
+            roundEdgesPanel8.Controls.Add(Scatter_Star_3);
             roundEdgesPanel8.Controls.Add(label10);
             roundEdgesPanel8.Controls.Add(label9);
             roundEdgesPanel8.Controls.Add(label8);
@@ -993,17 +994,17 @@
             roundEdgesPanel8.Location = new Point(605, 236);
             roundEdgesPanel8.Name = "roundEdgesPanel8";
             roundEdgesPanel8.Size = new Size(575, 350);
-            roundEdgesPanel8.TabIndex = 10;
+            roundEdgesPanel8.TabIndex = 0;
             // 
-            // label11
+            // Scatter_Star_3
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(299, 231);
-            label11.Name = "label11";
-            label11.Size = new Size(108, 32);
-            label11.TabIndex = 10;
-            label11.Text = "x20 RON";
+            Scatter_Star_3.AutoSize = true;
+            Scatter_Star_3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Scatter_Star_3.Location = new Point(299, 231);
+            Scatter_Star_3.Name = "Scatter_Star_3";
+            Scatter_Star_3.Size = new Size(108, 32);
+            Scatter_Star_3.TabIndex = 0;
+            Scatter_Star_3.Text = "x20 RON";
             // 
             // label10
             // 
@@ -1012,7 +1013,7 @@
             label10.Location = new Point(218, 231);
             label10.Name = "label10";
             label10.Size = new Size(49, 32);
-            label10.TabIndex = 9;
+            label10.TabIndex = 0;
             label10.Text = "3 ●";
             // 
             // label9
@@ -1032,7 +1033,7 @@
             label8.Location = new Point(218, 171);
             label8.Name = "label8";
             label8.Size = new Size(168, 60);
-            label8.TabIndex = 6;
+            label8.TabIndex = 0;
             label8.Text = "  ORIUNDE PE\r\nROLELE 1, 3 ȘI 5:";
             // 
             // pictureBox2
@@ -1059,7 +1060,7 @@
             roundEdgesPanel7.Location = new Point(21, 236);
             roundEdgesPanel7.Name = "roundEdgesPanel7";
             roundEdgesPanel7.Size = new Size(575, 350);
-            roundEdgesPanel7.TabIndex = 9;
+            roundEdgesPanel7.TabIndex = 0;
             // 
             // pictureBox4
             // 
@@ -1078,7 +1079,7 @@
             label6.Location = new Point(317, 265);
             label6.Name = "label6";
             label6.Size = new Size(33, 32);
-            label6.TabIndex = 8;
+            label6.TabIndex = 0;
             label6.Text = "ȘI";
             // 
             // pictureBox3
@@ -1098,7 +1099,7 @@
             label5.Location = new Point(125, 265);
             label5.Name = "label5";
             label5.Size = new Size(114, 32);
-            label5.TabIndex = 6;
+            label5.TabIndex = 0;
             label5.Text = "EXCEPȚIA";
             // 
             // label4
@@ -1108,7 +1109,7 @@
             label4.Location = new Point(189, 136);
             label4.Name = "label4";
             label4.Size = new Size(202, 120);
-            label4.TabIndex = 5;
+            label4.TabIndex = 0;
             label4.Text = "PE ROLELE 2, 3 ȘI 4\r\n SUBSTITUIE TOATE \r\nSIMBOLURILE DE PE\r\n ACEEAȘI ROLĂ, CU";
             // 
             // pictureBox1
@@ -1229,59 +1230,39 @@
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel14;
         private PictureBox pictureBox12;
         private PictureBox pictureBox13;
-        private Label label44;
         private Label label45;
-        private Label label46;
         private Label label47;
-        private Label label48;
         private Label label49;
         private PictureBox pictureBox11;
         private PictureBox pictureBox10;
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel13;
-        private Label label38;
         private Label label39;
-        private Label label40;
         private Label label41;
-        private Label label42;
         private Label label43;
         private PictureBox pictureBox9;
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel12;
-        private Label label27;
         private Label label28;
-        private Label label34;
         private Label label35;
-        private Label label36;
         private Label label37;
         private PictureBox pictureBox8;
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel11;
-        private Label label25;
         private Label label26;
-        private Label label29;
         private Label label30;
-        private Label label31;
         private Label label33;
         private PictureBox pictureBox7;
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel10;
-        private Label label24;
         private Label label32;
-        private Label label18;
         private Label label19;
-        private Label label20;
         private Label label21;
-        private Label label22;
         private Label label23;
         private PictureBox pictureBox6;
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel9;
-        private Label label16;
         private Label label17;
-        private Label label14;
         private Label label15;
-        private Label label12;
         private Label label13;
         private Label label7;
         private PictureBox pictureBox5;
         private Keyboard_HeatMap.Toolbox.RoundEdgesPanel roundEdgesPanel8;
-        private Label label11;
         private Label label10;
         private Label label9;
         private Label label8;
@@ -1295,5 +1276,25 @@
         private PictureBox pictureBox1;
         private PictureBox Logo_Picture;
         private Label label3;
+        public Label Symbols5_5;
+        public Label Symbols5_3;
+        public Label Symbols5_4;
+        public Label Symbol3_5;
+        public Label Symbol3_3;
+        public Label Symbol3_4;
+        public Label Symbol4_5;
+        public Label Symbol4_3;
+        public Label Symbol4_4;
+        public Label Symbol2_5;
+        public Label Symbol2_3;
+        public Label Symbol2_4;
+        public Label Symbol1_5;
+        public Label Symbol1_2;
+        public Label Symbol1_3;
+        public Label Symbol1_4;
+        public Label Scatter_Dollar_3;
+        public Label Scatter_Dollar_4;
+        public Label Scatter_Dollar_5;
+        public Label Scatter_Star_3;
     }
 }

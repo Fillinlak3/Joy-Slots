@@ -63,6 +63,7 @@ namespace Joy_Slots
                 Value_6.Parent.BackColor = Color.FromArgb(31, 81, 255);
                 Game_UI.Settings.SetCreditValue(1.00f);
             }
+
             this.Focus();
         }
 

@@ -185,6 +185,7 @@ namespace Joy_Slots
         {
             InitializeComponent();
             Settings = new GameSettings();
+            Settings.SetCreditValue(0.01f);
 
             // gamble_Winning
             gamble_Winning = new Gamble_Winning();
@@ -236,13 +237,12 @@ namespace Joy_Slots
             WinningLines = new List<WinningLine>();
             WinningLinesAnimation.Enabled = false;
 
-            Settings.SetCreditValue(0.01f);
             Set_Bet_Amount(BTN_Bet_1, null!);
             LB_LeiWinning.Visible = false;
             LB_AmountWon.Visible = false;
             BTN_Gamble.Visible = false;
             BTN_CashIn.Visible = false;
-            LB_Balance.Text = "10.00";
+            LB_Balance.Text = "100.00";
             Settings.CanSpin = true;
             BTN_Spin.Focus();
             UpdateTextsLocation();
@@ -265,7 +265,7 @@ namespace Joy_Slots
                 if (cancellationTokenSource != null)
                 {
                     // Don't stop the reels immediately.
-                    if (String.IsNullOrWhiteSpace(LB_Status.Text)) await Task.Delay(400);
+                    if (String.IsNullOrWhiteSpace(LB_Status.Text)) await Task.Delay(200); // Initial value: 400
 
                     // Send stop request.
                     if (cancellationTokenSource != null)
@@ -648,6 +648,35 @@ namespace Joy_Slots
             { Settings.SetBetAmount(Math.Round(Settings.Credit_Value * 300, 2)); BTN_Bet_4.BackgroundImage = Properties.Resources.Placebet_Buttons_Marked_Background; }
             else if (sender.GetHashCode() == BTN_Bet_5.GetHashCode())
             { Settings.SetBetAmount(Math.Round(Settings.Credit_Value * 500, 2)); BTN_Bet_5.BackgroundImage = Properties.Resources.Placebet_Buttons_Marked_Background; }
+
+            #region Menu Symbols Info
+            game_menu.Scatter_Star_3.Text = $"{Math.Round(Settings.Bet_Amount * 20, 2):F2} RON";
+
+            game_menu.Scatter_Dollar_3.Text = $"{Math.Round(Settings.Bet_Amount * 5, 2):F2} RON";
+            game_menu.Scatter_Dollar_4.Text = $"{Math.Round(Settings.Bet_Amount * 20, 2):F2} RON";
+            game_menu.Scatter_Dollar_5.Text = $"{Math.Round(Settings.Bet_Amount * 100, 2):F2} RON";
+
+            game_menu.Symbol1_2.Text = $"{Math.Round(Settings.Bet_Amount, 2):F2} RON";
+            game_menu.Symbol1_3.Text = $"{Math.Round(Settings.Bet_Amount * 5, 2):F2} RON";
+            game_menu.Symbol1_4.Text = $"{Math.Round(Settings.Bet_Amount * 25, 2):F2} RON";
+            game_menu.Symbol1_5.Text = $"{Math.Round(Settings.Bet_Amount * 500, 2):F2} RON";
+
+            game_menu.Symbol2_3.Text = $"{Math.Round(Settings.Bet_Amount * 4, 2):F2} RON";
+            game_menu.Symbol2_4.Text = $"{Math.Round(Settings.Bet_Amount * 6, 2):F2} RON";
+            game_menu.Symbol2_5.Text = $"{Math.Round(Settings.Bet_Amount * 70, 2):F2} RON";
+
+            game_menu.Symbol3_3.Text = $"{Math.Round(Settings.Bet_Amount * 4, 2):F2} RON";
+            game_menu.Symbol3_4.Text = $"{Math.Round(Settings.Bet_Amount * 6, 2):F2} RON";
+            game_menu.Symbol3_5.Text = $"{Math.Round(Settings.Bet_Amount * 70, 2):F2} RON";
+
+            game_menu.Symbol4_3.Text = $"{Math.Round(Settings.Bet_Amount * 2, 2):F2} RON";
+            game_menu.Symbol4_4.Text = $"{Math.Round(Settings.Bet_Amount * 4, 2):F2} RON";
+            game_menu.Symbol4_5.Text = $"{Math.Round(Settings.Bet_Amount * 20, 2):F2} RON";
+
+            game_menu.Symbols5_3.Text = $"{Math.Round(Settings.Bet_Amount * 1, 2):F2} RON";
+            game_menu.Symbols5_4.Text = $"{Math.Round(Settings.Bet_Amount * 3, 2):F2} RON";
+            game_menu.Symbols5_5.Text = $"{Math.Round(Settings.Bet_Amount * 15, 2):F2} RON";
+            #endregion
 
             BTN_Spin_Click(sender, e);
         }
