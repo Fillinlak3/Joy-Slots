@@ -136,6 +136,9 @@
   <data name="cards_flickering" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\gamble\cards_flickering.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cash_In" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\misc\Cash_In.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Catanoiu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\symbols\Catanoiu.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +192,9 @@
   </data>
   <data name="Plum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\symbols\Plum.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rizea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\symbols\Rizea.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Robert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\symbols\Robert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -249,6 +255,15 @@
   </data>
   <data name="Spin_Button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\misc\Spin_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\symbols\Teo.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Volume_Mid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\misc\Volume_Mid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Volume_Min" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\misc\Volume_Min.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Volume_Mute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\misc\Volume_Mute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

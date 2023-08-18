@@ -122,6 +122,16 @@ namespace Joy_Slots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cash_In {
+            get {
+                object obj = ResourceManager.GetObject("Cash_In", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Catanoiu {
             get {
                 object obj = ResourceManager.GetObject("Catanoiu", resourceCulture);
@@ -293,6 +303,16 @@ namespace Joy_Slots.Properties {
         internal static System.Drawing.Bitmap Plum {
             get {
                 object obj = ResourceManager.GetObject("Plum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rizea {
+            get {
+                object obj = ResourceManager.GetObject("Rizea", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -481,6 +501,36 @@ namespace Joy_Slots.Properties {
         internal static System.Drawing.Bitmap Spin_Button1 {
             get {
                 object obj = ResourceManager.GetObject("Spin_Button1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Teo {
+            get {
+                object obj = ResourceManager.GetObject("Teo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Volume_Mid {
+            get {
+                object obj = ResourceManager.GetObject("Volume_Mid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Volume_Min {
+            get {
+                object obj = ResourceManager.GetObject("Volume_Min", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

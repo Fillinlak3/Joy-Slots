@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using NAudio.Wave;
+﻿using NAudio.Wave;
 using System.Diagnostics;
 using System.Media;
 
@@ -15,13 +14,17 @@ namespace Joy_Slots
         private Gamble_Winning gamble_Winning;
         private Menu game_menu;
 
+        #region Game Structs
         public struct GameSettings
         {
-            private bool m_volume_on = true;
+            private bool m_volume_mute = true;
             /// <summary>
             /// In-game sounds active.
             /// </summary>
-            public bool Volume_ON { get => this.m_volume_on; set => this.m_volume_on = value; }
+            public bool Volume_Mute { get => this.m_volume_mute; set => this.m_volume_mute = value; }
+
+            private float m_volume_level = 1.0f;
+            public float Volume_Level { get => this.m_volume_level; set => this.m_volume_level = value; }
 
             private bool m_canspin = false;
             public bool CanSpin { get => this.m_canspin; set => this.m_canspin = value; }
@@ -99,42 +102,42 @@ namespace Joy_Slots
                 }
                 else if (picture == SymbolsPictures[1])
                 {
-                    this.Name = "Rusu";
+                    this.Name = "Bucurie";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 4, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 6, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 70, 2);
                 }
                 else if (picture == SymbolsPictures[2])
                 {
-                    this.Name = "Bucurie";
+                    this.Name = "Teo";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 4, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 6, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 70, 2);
                 }
                 else if (picture == SymbolsPictures[3])
                 {
-                    this.Name = "Catanoiu";
+                    this.Name = "Rizea";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 2, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 4, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 20, 2);
                 }
                 else if (picture == SymbolsPictures[4])
                 {
-                    this.Name = "Gabi";
+                    this.Name = "Rusu";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 1, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 3, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 15, 2);
                 }
                 else if (picture == SymbolsPictures[5])
                 {
-                    this.Name = "Lamaie";
+                    this.Name = "Catanoiu";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 1, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 3, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 15, 2);
                 }
                 else if (picture == SymbolsPictures[6])
                 {
-                    this.Name = "Pruna";
+                    this.Name = "Gabi";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 1, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 3, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 15, 2);
@@ -176,6 +179,7 @@ namespace Joy_Slots
                 }
             }
         }
+        #endregion
 
         public Game_UI()
         {
@@ -204,21 +208,23 @@ namespace Joy_Slots
             game_menu.TabIndex = 0;
             game_menu.TabStop = false;
             game_menu.Size = new Size(1210, 690);
-            game_menu.Margin = new Padding(0);
             for (int i = 0; i < 6; i++)
-                game_menu.Controls[i].Controls[0].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
+            {
+                game_menu.BetSettingsPanel.Controls[i].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
+                game_menu.BetSettingsPanel.Controls[i].Controls[0].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
+            }
             game_menu.VisibleChanged += (sender, e) => { Settings.CanSpin = BTN_Spin.Visible = !game_menu.Visible; };
             this.Controls.Add(game_menu);
             game_menu.BringToFront();
 
             SymbolsPictures = new List<Bitmap>() {
                 Properties.Resources.Robert,
-                Properties.Resources.Rusu,
                 Properties.Resources.Bucurie_2,
+                Properties.Resources.Teo,
+                Properties.Resources.Rizea,
+                Properties.Resources.Rusu,
                 Properties.Resources.Catanoiu,
                 Properties.Resources.Gabi,
-                Properties.Resources.Lemon,
-                Properties.Resources.Plum,
                 Properties.Resources.Orange
             };
             SpecialSymbolsPictures = new List<Bitmap>()
@@ -236,7 +242,7 @@ namespace Joy_Slots
             LB_AmountWon.Visible = false;
             BTN_Gamble.Visible = false;
             BTN_CashIn.Visible = false;
-            LB_Balance.Text = "10000.00";
+            LB_Balance.Text = "10.00";
             Settings.CanSpin = true;
             BTN_Spin.Focus();
             UpdateTextsLocation();
@@ -285,7 +291,7 @@ namespace Joy_Slots
             if (Math.Round(Double.Parse(LB_Balance.Text), 2) == 0)
             { LB_Status.Text = "SESIUNE DE JOC TERMINATĂ. VĂ MULȚUMIM!"; MessageBox.Show("Balanță incompatibilă."); BTN_Spin.Visible = false; return; }
             else if (Math.Round(Double.Parse(LB_Balance.Text) - Settings.Bet_Amount, 2) < 0)
-            { LB_Status.Text = $"VĂ RUGĂM, SELECTAȚI ALT BET. {Settings.CanSpin}"; MessageBox.Show("Bet necorespunzător."); return; }
+            { LB_Status.Text = $"VĂ RUGĂM, SELECTAȚI ALT BET."; MessageBox.Show("Bet necorespunzător."); return; }
 
             // Accept the bet and take the money from balance.
             LB_Balance.Text = Math.Round(Double.Parse(LB_Balance.Text) - Settings.Bet_Amount, 2).ToString("F2");
@@ -294,6 +300,7 @@ namespace Joy_Slots
             SoundPlayer reels_rolling_sound = new SoundPlayer(Properties.Resources.roller_rolling);
             WaveOutEvent button_sound = new WaveOutEvent();
             button_sound.Init(new WaveFileReader(Properties.Resources.spin_button));
+            button_sound.Volume = Settings.Volume_Level;
             button_sound.Play();
 
             // Block the button to prevent bugs.
@@ -1078,6 +1085,7 @@ namespace Joy_Slots
                         }
                     }
                 }
+                BTN_Spin.Image = Properties.Resources.Cash_In;
                 BTN_Spin.Enabled = true;
                 BTN_Spin.Visible = true;
                 BTN_Spin.Focus();
@@ -1115,7 +1123,6 @@ namespace Joy_Slots
 
                                 // Calculate the increment value based on total_winning
                                 double incrementValue = (endAmount - startAmount) / numIncrements;
-                                int animationDelay = CalculateAnimationDelay(total_winning);
 
                                 double sum = 0;
                                 for (int i = 0; i <= numIncrements && !cancellationToken.IsCancellationRequested; i++)
@@ -1126,16 +1133,16 @@ namespace Joy_Slots
                                     if (sum >= total_winning - 0.001)
                                         break;
 
-                                    await Task.Delay(animationDelay);
+                                    await Task.Delay(30);
                                 }
 
                                 cancellationTokenSource = null;
                                 LB_AmountWon.Text = total_winning.ToString("F2");
                                 UpdateTextsLocation();
 
+                                BTN_Spin.Image = Properties.Resources.Spin_Button1;
                                 BTN_CashIn.Visible = true;
                                 BTN_Gamble.Visible = true;
-                                BTN_Spin.Visible = true;
 
                                 winning_sound.Stop();
                                 // Play bank-in sound.
@@ -1252,6 +1259,7 @@ namespace Joy_Slots
             double balance = Math.Round(Double.Parse(LB_Balance.Text), 2);
             BTN_CashIn.Visible = false;
             BTN_Gamble.Visible = false;
+            BTN_Spin.Image = Properties.Resources.Cash_In;
             BTN_Spin.Focus();
 
             if (last_amount_won == 0) { LB_AmountWon.Visible = LB_LeiWinning.Visible = false; return; }
@@ -1263,29 +1271,28 @@ namespace Joy_Slots
                 if (LB_AmountWon.InvokeRequired)
                     await LB_AmountWon.Invoke(async () =>
                     {
-                        double total_winning = Math.Round(Double.Parse(LB_AmountWon.Text), 2);
                         double startAmount = 0.1;
-                        double endAmount = total_winning;
+                        double endAmount = last_amount_won;
                         int numIncrements = 100; // Number of increments in the animation
 
                         // Calculate the increment value based on total_winning
                         double incrementValue = (endAmount - startAmount) / numIncrements;
-                        int animationDelay = CalculateAnimationDelay(total_winning);
 
                         double sum = 0;
-                        for (int i = 0; sum <= numIncrements && !cancellationToken.IsCancellationRequested; i++)
+                        for (int i = 0; i <= numIncrements && !cancellationToken.IsCancellationRequested; i++)
                         {
                             sum = startAmount + i * incrementValue;
                             LB_AmountWon.Text = Math.Round(last_amount_won - sum, 2).ToString("F2");
                             LB_Balance.Text = Math.Round(balance + sum, 2).ToString("F2");
                             UpdateTextsLocation();
-                            if (sum >= total_winning - 0.001)
+                            if (sum >= last_amount_won - 0.001)
                                 break;
 
-                            await Task.Delay(animationDelay);
+                            await Task.Delay(30);
                         }
 
                         cancellationTokenSource = null;
+                        BTN_Spin.Image = Properties.Resources.Spin_Button1;
                         LB_AmountWon.Text = Math.Round(last_amount_won, 2).ToString("F2");
                         LB_Balance.Text = Math.Round(balance + last_amount_won, 2).ToString("F2");
                         last_amount_won = balance = 0;
@@ -1311,16 +1318,16 @@ namespace Joy_Slots
         {
             double minTotalWinning = 0.20;
             double maxTotalWinning = 250000.00;
-            double minDelay = 100; // Minimum delay for smaller total_winning
-            double maxDelay = 500; // Maximum delay for larger total_winning
+            double minDelay = 50; // Minimum delay for smaller total_winning
+            double maxDelay = 200; // Maximum delay for larger total_winning
 
             // Calculate the animation delay based on total_winning
             double t = (total_winning - minTotalWinning) / (maxTotalWinning - minTotalWinning);
             t = Math.Max(0, Math.Min(1, t)); // Ensure t is between 0 and 1
 
             // Use a power function for interpolation to adjust the delay
-            double delayExponent = 2.0; // Adjust this value for different speed profiles
-            double interpolatedDelay = Math.Pow(t, delayExponent);
+            double delayExponent = 10.0; // Adjust this value for different speed profiles
+            double interpolatedDelay = t * delayExponent;/*Math.Pow(t, delayExponent);*/
             int animationDelay = (int)(minDelay + interpolatedDelay * (maxDelay - minDelay));
 
             return animationDelay;
@@ -1336,6 +1343,40 @@ namespace Joy_Slots
                 return;
             }
             game_menu.Visible = false;
+        }
+
+        private void BTN_Volume_Click(object sender, EventArgs e)
+        {
+            BTN_Spin.Focus();
+
+            switch (Settings.Volume_Level)
+            {
+                case 1.0f:
+                    BTN_Volume.BackgroundImage = Properties.Resources.Volume_Mid;
+                    Settings.Volume_Level = 0.65f;
+                    break;
+
+                case 0.65f:
+                    BTN_Volume.BackgroundImage = Properties.Resources.Volume_Min;
+                    Settings.Volume_Level = 0.35f;
+                    break;
+
+                case 0.35f:
+                    BTN_Volume.BackgroundImage = Properties.Resources.Volume_Mute;
+                    Settings.Volume_Level = 0;
+                    Settings.Volume_Mute = true;
+                    break;
+
+                case 0:
+                    BTN_Volume.BackgroundImage = Properties.Resources.Volume_Sound;
+                    Settings.Volume_Level = 1.0f;
+                    Settings.Volume_Mute = false;
+                    break;
+
+                default:
+                    Settings.Volume_Level = 1.0f;
+                    break;
+            }
         }
     }
 }

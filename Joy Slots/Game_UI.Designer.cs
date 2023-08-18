@@ -114,20 +114,19 @@
             // BTN_CashIn
             // 
             BTN_CashIn.BackColor = Color.Transparent;
-            BTN_CashIn.BackgroundImage = Properties.Resources.Gamble_CashIn_Background;
+            BTN_CashIn.BackgroundImage = Properties.Resources.Cash_In;
             BTN_CashIn.BackgroundImageLayout = ImageLayout.Center;
             BTN_CashIn.BorderRadius = 20;
             BTN_CashIn.FlatAppearance.BorderSize = 0;
             BTN_CashIn.FlatStyle = FlatStyle.Flat;
             BTN_CashIn.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_CashIn.ForeColor = Color.Black;
-            BTN_CashIn.Location = new Point(50, 614);
+            BTN_CashIn.Location = new Point(50, 620);
             BTN_CashIn.Margin = new Padding(0);
             BTN_CashIn.Name = "BTN_CashIn";
-            BTN_CashIn.Size = new Size(131, 87);
+            BTN_CashIn.Size = new Size(128, 128);
             BTN_CashIn.TabIndex = 0;
             BTN_CashIn.TabStop = false;
-            BTN_CashIn.Text = "ÎNCASEAZĂ";
             BTN_CashIn.UseVisualStyleBackColor = false;
             BTN_CashIn.Click += BTN_CashIn_Click;
             // 
@@ -141,7 +140,7 @@
             BTN_Gamble.FlatStyle = FlatStyle.Flat;
             BTN_Gamble.Font = new Font("Segoe UI Semibold", 40F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_Gamble.ForeColor = Color.Black;
-            BTN_Gamble.Location = new Point(50, 218);
+            BTN_Gamble.Location = new Point(50, 215);
             BTN_Gamble.Margin = new Padding(0);
             BTN_Gamble.Name = "BTN_Gamble";
             BTN_Gamble.Size = new Size(131, 87);
@@ -216,6 +215,7 @@
             BTN_Volume.TabIndex = 0;
             BTN_Volume.TabStop = false;
             BTN_Volume.UseVisualStyleBackColor = false;
+            BTN_Volume.Click += BTN_Volume_Click;
             // 
             // Bottom_Panel
             // 
