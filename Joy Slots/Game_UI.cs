@@ -324,7 +324,7 @@ namespace Joy_Slots
                             Rollbar_1.Controls[j].BackgroundImage = Rollbar_1.Controls[j - 1].BackgroundImage;
                         }
                         Rollbar_1.Controls[0].BackgroundImage = SymbolsPictures[rand.Next(SymbolsPictures.Count)];
-                        await Task.Delay(60);
+                        await Task.Delay(17);
                     }
                     if(rand.NextDouble() < special_symbol_percentage)
                         Rollbar_1.Controls[rand.Next(2)].BackgroundImage = SpecialSymbolsPictures[rand.Next(1, SpecialSymbolsPictures.Count)];
@@ -370,14 +370,14 @@ namespace Joy_Slots
                     }
                 }),
                 new Task(async () => {
-                    for (int i = 0; i < 24 && cancellationToken.IsCancellationRequested == false; i++)
+                    for (int i = 0; i < 30 && cancellationToken.IsCancellationRequested == false; i++)
                     {
                         for (int j = 2; j >= 1; j--)
                         {
                             Rollbar_2.Controls[j].BackgroundImage = Rollbar_2.Controls[j - 1].BackgroundImage;
                         }
                         Rollbar_2.Controls[0].BackgroundImage = SymbolsPictures[rand.Next(SymbolsPictures.Count)];
-                        await Task.Delay(60);
+                        await Task.Delay(30);
                     }
                     if(rand.NextDouble() < special_symbol_percentage)
                         Rollbar_2.Controls[rand.Next(2)].BackgroundImage = SpecialSymbolsPictures[rand.Next(2)];
@@ -422,14 +422,14 @@ namespace Joy_Slots
                     }
                 }),
                 new Task(async () => {
-                    for (int i = 0; i < 26 && cancellationToken.IsCancellationRequested == false; i++)
+                    for (int i = 0; i < 40 && cancellationToken.IsCancellationRequested == false; i++)
                     {
                         for (int j = 2; j >= 1; j--)
                         {
                             Rollbar_3.Controls[j].BackgroundImage = Rollbar_3.Controls[j - 1].BackgroundImage;
                         }
                         Rollbar_3.Controls[0].BackgroundImage = SymbolsPictures[rand.Next(SymbolsPictures.Count)];
-                        await Task.Delay(60);
+                        await Task.Delay(30);
                     }
                     if(rand.NextDouble() < special_symbol_percentage)
                         Rollbar_3.Controls[rand.Next(2)].BackgroundImage = SpecialSymbolsPictures[rand.Next(SpecialSymbolsPictures.Count)];
@@ -486,14 +486,14 @@ namespace Joy_Slots
                     }
                 }),
                 new Task(async () => {
-                    for (int i = 0; i < 28 && cancellationToken.IsCancellationRequested == false; i++)
+                    for (int i = 0; i < 36 && cancellationToken.IsCancellationRequested == false; i++)
                     {
                         for (int j = 2; j >= 1; j--)
                         {
                             Rollbar_4.Controls[j].BackgroundImage = Rollbar_4.Controls[j - 1].BackgroundImage;
                         }
                         Rollbar_4.Controls[0].BackgroundImage = SymbolsPictures[rand.Next(SymbolsPictures.Count)];
-                        await Task.Delay(60);
+                        await Task.Delay(33);
                     }
                     if(rand.NextDouble() < special_symbol_percentage)
                         Rollbar_4.Controls[rand.Next(2)].BackgroundImage = SpecialSymbolsPictures[rand.Next(2)];
@@ -538,14 +538,14 @@ namespace Joy_Slots
                     }
                 }),
                 new Task(async () => {
-                    for (int i = 0; i < 30 && cancellationToken.IsCancellationRequested == false; i++)
+                    for (int i = 0; i < 43 && cancellationToken.IsCancellationRequested == false; i++)
                     {
                         for (int j = 2; j >= 1; j--)
                         {
                             Rollbar_5.Controls[j].BackgroundImage = Rollbar_5.Controls[j - 1].BackgroundImage;
                         }
                         Rollbar_5.Controls[0].BackgroundImage = SymbolsPictures[rand.Next(SymbolsPictures.Count)];
-                        await Task.Delay(60);
+                        await Task.Delay(33);
                     }
                     reels_rolling_sound.Stop();
                     lock(reels_rolling_sound) reels_rolling_sound.Dispose();
@@ -599,7 +599,7 @@ namespace Joy_Slots
                 foreach (var task in tasks)
                     task.Start();
 
-                await Task.WhenAll(Task.WhenAll(tasks), Task.Delay(1800, cancellationToken));
+                await Task.WhenAll(Task.WhenAll(tasks), Task.Delay(2000, cancellationToken));
             }
             catch (OperationCanceledException)
             {
@@ -611,7 +611,7 @@ namespace Joy_Slots
             finally
             {
                 button_sound.Dispose();
-                await Task.Delay(200);
+                await Task.Delay(100); // Initial value: 200
                 cancellationTokenSource = null;
                 CheckWin();
                 await Task.Delay(200);
