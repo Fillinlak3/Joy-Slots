@@ -614,7 +614,7 @@ namespace Joy_Slots
                 await Task.Delay(100); // Initial value: 200
                 cancellationTokenSource = null;
                 CheckWin();
-                await Task.Delay(200);
+                await Task.Delay(250);
                 BTN_Spin.Visible = true;
                 Settings.CanSpin = true;
             }
