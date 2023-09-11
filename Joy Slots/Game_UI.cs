@@ -144,7 +144,7 @@ namespace Joy_Slots
                 }
                 else if (picture == SymbolsPictures[7])
                 {
-                    this.Name = "Portocala";
+                    this.Name = "Petru";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 1, 2);
                     Value_on_4 = Math.Round(Settings.Bet_Amount * 3, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 15, 2);
@@ -226,7 +226,7 @@ namespace Joy_Slots
                 Properties.Resources.Rusu,
                 Properties.Resources.Catanoiu,
                 Properties.Resources.Gabi,
-                Properties.Resources.Orange
+                Properties.Resources.Petru
             };
             SpecialSymbolsPictures = new List<Bitmap>()
             {
@@ -1224,7 +1224,8 @@ namespace Joy_Slots
             var item = WinningLines[line];
             for (int i = 0; i < item.symbols_count; i++)
             {
-                item.Symbols[i].Paint += SymbolPictureBox_Paint;
+                //item.Symbols[i].Paint += SymbolPictureBox_Paint;
+                item.Symbols[i].Image = Properties.Resources.animated_outline;
                 item.Symbols[i].Invalidate();
             }
 
@@ -1241,7 +1242,8 @@ namespace Joy_Slots
             {
                 for (int i = 0; i < line.symbols_count; i++)
                 {
-                    line.Symbols[i].Paint -= SymbolPictureBox_Paint;
+                    //line.Symbols[i].Paint -= SymbolPictureBox_Paint;
+                    line.Symbols[i].Image = Properties.Resources.fire_burning;
                     if (clear_fires) line.Symbols[i].Image = null;
                     line.Symbols[i].Invalidate();
                 }
@@ -1252,20 +1254,19 @@ namespace Joy_Slots
         /// <summary>
         /// Timer starts and every 2 seconds it draws and burns the winning lines.
         /// </summary>
-        private async void WinningLinesDrawingAnimation(object sender, EventArgs e)
+        private void WinningLinesDrawingAnimation(object sender, EventArgs e)
         {
             if (WinningLines.Count == 0)
                 return;
 
-            if (WinningLinesAnimation.Interval != 2000)
-            { WinningLinesAnimation.Interval = 2000; line_index = 0; }
+            if (WinningLinesAnimation.Interval != 2200)
+            { WinningLinesAnimation.Interval = 2200; line_index = 0; }
 
             if (line_index == WinningLines.Count)
                 line_index = 0;
 
-            DrawLine(line_index++);
-            await Task.Delay(1000);
             ClearLines();
+            DrawLine(line_index++);
         }
 
         private async void BTN_Gamble_Click(object sender, EventArgs e)
@@ -1341,25 +1342,6 @@ namespace Joy_Slots
 
             if (last_amount_won == 0) { LB_Winning.Text = "ULTIMUL CÂȘTIG:"; LB_AmountWon.Visible = LB_LeiWinning.Visible = false; return; }
             BTN_CashIn_Click(sender, e);
-        }
-
-        private static int CalculateAnimationDelay(double total_winning)
-        {
-            double minTotalWinning = 0.20;
-            double maxTotalWinning = 250000.00;
-            double minDelay = 50; // Minimum delay for smaller total_winning
-            double maxDelay = 200; // Maximum delay for larger total_winning
-
-            // Calculate the animation delay based on total_winning
-            double t = (total_winning - minTotalWinning) / (maxTotalWinning - minTotalWinning);
-            t = Math.Max(0, Math.Min(1, t)); // Ensure t is between 0 and 1
-
-            // Use a power function for interpolation to adjust the delay
-            double delayExponent = 10.0; // Adjust this value for different speed profiles
-            double interpolatedDelay = t * delayExponent;/*Math.Pow(t, delayExponent);*/
-            int animationDelay = (int)(minDelay + interpolatedDelay * (maxDelay - minDelay));
-
-            return animationDelay;
         }
 
         private void BTN_Menu_Click(object sender, EventArgs e)

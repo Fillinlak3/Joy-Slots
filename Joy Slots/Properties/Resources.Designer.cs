@@ -73,6 +73,16 @@ namespace Joy_Slots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap animated_outline {
+            get {
+                object obj = ResourceManager.GetObject("animated_outline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Background {
             get {
                 object obj = ResourceManager.GetObject("Background", resourceCulture);
@@ -273,6 +283,16 @@ namespace Joy_Slots.Properties {
         internal static System.Drawing.Bitmap Orange {
             get {
                 object obj = ResourceManager.GetObject("Orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Petru {
+            get {
+                object obj = ResourceManager.GetObject("Petru", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -501,6 +521,16 @@ namespace Joy_Slots.Properties {
         internal static System.Drawing.Bitmap Spin_Button1 {
             get {
                 object obj = ResourceManager.GetObject("Spin_Button1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap static_outline {
+            get {
+                object obj = ResourceManager.GetObject("static_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

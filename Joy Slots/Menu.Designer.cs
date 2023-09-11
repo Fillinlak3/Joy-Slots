@@ -415,7 +415,7 @@
             // 
             // pictureBox12
             // 
-            pictureBox12.BackgroundImage = Properties.Resources.Orange;
+            pictureBox12.BackgroundImage = Properties.Resources.Petru;
             pictureBox12.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox12.Location = new Point(1019, 10);
             pictureBox12.Name = "pictureBox12";
@@ -1149,8 +1149,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 43, 43);
             Controls.Add(MenuBarPanel);
-            Controls.Add(BetSettingsPanel);
             Controls.Add(SymbolsInfoPanel);
+            Controls.Add(BetSettingsPanel);
             DoubleBuffered = true;
             Margin = new Padding(0);
             Name = "Menu";
