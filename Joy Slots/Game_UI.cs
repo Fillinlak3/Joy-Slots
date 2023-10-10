@@ -104,14 +104,14 @@ namespace Joy_Slots
                 {
                     this.Name = "Bucurie";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 4, 2);
-                    Value_on_4 = Math.Round(Settings.Bet_Amount * 6, 2);
+                    Value_on_4 = Math.Round(Settings.Bet_Amount * 12, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 70, 2);
                 }
                 else if (picture == SymbolsPictures[2])
                 {
                     this.Name = "Teo";
                     Value_on_3 = Math.Round(Settings.Bet_Amount * 4, 2);
-                    Value_on_4 = Math.Round(Settings.Bet_Amount * 6, 2);
+                    Value_on_4 = Math.Round(Settings.Bet_Amount * 12, 2);
                     Value_on_5 = Math.Round(Settings.Bet_Amount * 70, 2);
                 }
                 else if (picture == SymbolsPictures[3])
@@ -662,11 +662,11 @@ namespace Joy_Slots
             game_menu.Symbol1_5.Text = $"{Math.Round(Settings.Bet_Amount * 500, 2):F2} RON";
 
             game_menu.Symbol2_3.Text = $"{Math.Round(Settings.Bet_Amount * 4, 2):F2} RON";
-            game_menu.Symbol2_4.Text = $"{Math.Round(Settings.Bet_Amount * 6, 2):F2} RON";
+            game_menu.Symbol2_4.Text = $"{Math.Round(Settings.Bet_Amount * 12, 2):F2} RON";
             game_menu.Symbol2_5.Text = $"{Math.Round(Settings.Bet_Amount * 70, 2):F2} RON";
 
             game_menu.Symbol3_3.Text = $"{Math.Round(Settings.Bet_Amount * 4, 2):F2} RON";
-            game_menu.Symbol3_4.Text = $"{Math.Round(Settings.Bet_Amount * 6, 2):F2} RON";
+            game_menu.Symbol3_4.Text = $"{Math.Round(Settings.Bet_Amount * 12, 2):F2} RON";
             game_menu.Symbol3_5.Text = $"{Math.Round(Settings.Bet_Amount * 70, 2):F2} RON";
 
             game_menu.Symbol4_3.Text = $"{Math.Round(Settings.Bet_Amount * 2, 2):F2} RON";

@@ -115,7 +115,7 @@ namespace Joy_Slots
             card_1.BackgroundImage = card_symbols[card_1_symbol_code];
             MainCard.Image = null;
             int MainCard_symbol_code = 0;
-            MainCard.BackgroundImage = big_card_symbols[MainCard_symbol_code];
+            MainCard.BackgroundImage = big_card_symbols[card_1_symbol_code];
 
             if (card_1_symbol_code == MainCard_symbol_code)
             {
@@ -171,7 +171,7 @@ namespace Joy_Slots
             card_1.BackgroundImage = card_symbols[card_1_symbol_code];
             MainCard.Image = null;
             int MainCard_symbol_code = 1;
-            MainCard.BackgroundImage = big_card_symbols[MainCard_symbol_code];
+            MainCard.BackgroundImage = big_card_symbols[card_1_symbol_code];
 
             if (card_1_symbol_code == MainCard_symbol_code)
             {
