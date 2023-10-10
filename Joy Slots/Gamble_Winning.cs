@@ -22,6 +22,7 @@ namespace Joy_Slots
         private List<PictureBox> history_cards;
         private int gamble_tries = 3;
         private SoundPlayer cards_flickering_sound;
+        private bool gamblingButtonsAvailable;
 
         public Gamble_Winning()
         {
@@ -100,13 +101,16 @@ namespace Joy_Slots
                 LB_IncercariRamase.Text = gamble_tries.ToString();
                 LB_SumaGamble.Text = Game_UI.LB_AmountWon.Text;
                 LB_GambleCastig.Text = Math.Round(Double.Parse(LB_SumaGamble.Text) * 2, 2).ToString("F2");
-
+                gamblingButtonsAvailable = true;
             }
             catch (Exception) { }
         }
 
-        private async void BTN_Red_Click(object sender, EventArgs e)
+        public async void BTN_Red_Click(object sender, EventArgs e)
         {
+            if (!gamblingButtonsAvailable) return;
+            gamblingButtonsAvailable = false;
+
             cards_flickering_sound.Stop();
             BTN_Red.Enabled = BTN_Black.Enabled = BTN_CashIn.Enabled = false;
             LB_Istoric.Focus();
@@ -130,7 +134,7 @@ namespace Joy_Slots
                     LB_GambleCastig.Text = Math.Round(Double.Parse(LB_SumaGamble.Text) * 2, 2).ToString("F2");
                 await Task.Delay(1000);
                 LB_IncercariRamase.Text = $"{--gamble_tries}";
-                BTN_CashIn.Focus();
+                gamblingButtonsAvailable = true;
             }
             else
             {
@@ -138,7 +142,7 @@ namespace Joy_Slots
                 gamble_lose.Play();
 
                 // Maybe implement here money lose to 0 animation.
-                Game_UI.LB_AmountWon.Text = "0";
+                Game_UI.LB_AmountWon.Text = "0.00";
                 Game_UI.last_amount_won = 0;
                 await Task.Delay(1000);
                 this.Visible = false;
@@ -148,7 +152,7 @@ namespace Joy_Slots
             {
                 BTN_CashIn_Click(sender, e);
             }
-            else if (gamble_tries != 0 && Game_UI.LB_AmountWon.Text != "0")
+            else if (gamble_tries != 0 && Game_UI.LB_AmountWon.Text != "0.00")
             {
                 MainCard.BackgroundImage = null;
                 MainCard.Image = Properties.Resources.cards_flickering;
@@ -161,8 +165,11 @@ namespace Joy_Slots
             BTN_Red.Enabled = BTN_Black.Enabled = BTN_CashIn.Enabled = true;
         }
 
-        private async void BTN_Black_Click(object sender, EventArgs e)
+        public async void BTN_Black_Click(object sender, EventArgs e)
         {
+            if (!gamblingButtonsAvailable) return;
+            gamblingButtonsAvailable = false;
+
             cards_flickering_sound.Stop();
             BTN_Red.Enabled = BTN_Black.Enabled = BTN_CashIn.Enabled = false;
             LB_Istoric.Focus();
@@ -186,7 +193,7 @@ namespace Joy_Slots
                     LB_GambleCastig.Text = Math.Round(Double.Parse(LB_SumaGamble.Text) * 2, 2).ToString("F2");
                 await Task.Delay(1000);
                 LB_IncercariRamase.Text = $"{--gamble_tries}";
-                BTN_CashIn.Focus();
+                gamblingButtonsAvailable = true;
             }
             else
             {
@@ -194,7 +201,7 @@ namespace Joy_Slots
                 gamble_lose.Play();
 
                 // Maybe implement here money lose to 0 animation.
-                Game_UI.LB_AmountWon.Text = "0";
+                Game_UI.LB_AmountWon.Text = "0.00";
                 Game_UI.last_amount_won = 0;
                 await Task.Delay(1000);
                 this.Visible = false;
@@ -204,7 +211,7 @@ namespace Joy_Slots
             {
                 BTN_CashIn_Click(sender, e);
             }
-            else if (gamble_tries != 0 && Game_UI.LB_AmountWon.Text != "0")
+            else if (gamble_tries != 0 && Game_UI.LB_AmountWon.Text != "0.00")
             {
                 MainCard.BackgroundImage = null;
                 MainCard.Image = Properties.Resources.cards_flickering;
@@ -217,8 +224,10 @@ namespace Joy_Slots
             BTN_Red.Enabled = BTN_Black.Enabled = BTN_CashIn.Enabled = true;
         }
 
-        private async void BTN_CashIn_Click(object sender, EventArgs e)
+        public async void BTN_CashIn_Click(object sender, EventArgs e)
         {
+            if (!gamblingButtonsAvailable) return;
+
             try
             {
                 cards_flickering_sound.Stop();

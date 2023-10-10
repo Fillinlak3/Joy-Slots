@@ -51,6 +51,7 @@
             ClientSize = new Size(1666, 916);
             Controls.Add(game_ui);
             DoubleBuffered = true;
+            KeyPreview = true;
             MaximizeBox = false;
             MaximumSize = new Size(1682, 955);
             MinimumSize = new Size(1682, 955);
@@ -58,6 +59,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Joy Slots";
             FormClosing += Main_Form_FormClosing;
+            KeyUp += Main_Form_KeyUp;
             ResumeLayout(false);
         }
 

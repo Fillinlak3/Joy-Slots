@@ -110,6 +110,7 @@
             Right_Panel.Name = "Right_Panel";
             Right_Panel.Size = new Size(228, 916);
             Right_Panel.TabIndex = 0;
+            Right_Panel.MouseClick += StopAnimationsByClick;
             // 
             // BTN_CashIn
             // 
@@ -197,6 +198,7 @@
             Left_Panel.Name = "Left_Panel";
             Left_Panel.Size = new Size(228, 916);
             Left_Panel.TabIndex = 0;
+            Left_Panel.MouseClick += StopAnimationsByClick;
             // 
             // BTN_Volume
             // 
@@ -236,6 +238,7 @@
             Bottom_Panel.Name = "Bottom_Panel";
             Bottom_Panel.Size = new Size(1210, 113);
             Bottom_Panel.TabIndex = 0;
+            Bottom_Panel.MouseClick += StopAnimationsByClick;
             // 
             // LB_LeiWinning
             // 
@@ -247,6 +250,7 @@
             LB_LeiWinning.Size = new Size(23, 15);
             LB_LeiWinning.TabIndex = 0;
             LB_LeiWinning.Text = "LEI";
+            LB_LeiWinning.MouseClick += StopAnimationsByClick;
             // 
             // LB_AmountWon
             // 
@@ -259,6 +263,7 @@
             LB_AmountWon.TabIndex = 0;
             LB_AmountWon.Text = "123456";
             LB_AmountWon.TextAlign = ContentAlignment.MiddleCenter;
+            LB_AmountWon.MouseClick += StopAnimationsByClick;
             // 
             // BTN_Bet_5
             // 
@@ -370,6 +375,7 @@
             LB_LeiBalance.Size = new Size(23, 15);
             LB_LeiBalance.TabIndex = 0;
             LB_LeiBalance.Text = "LEI";
+            LB_LeiBalance.MouseClick += StopAnimationsByClick;
             // 
             // LB_Balance
             // 
@@ -381,37 +387,40 @@
             LB_Balance.Size = new Size(85, 30);
             LB_Balance.TabIndex = 0;
             LB_Balance.Text = "123456";
+            LB_Balance.MouseClick += StopAnimationsByClick;
             // 
             // LB_Winning
             // 
             LB_Winning.AutoSize = true;
-            LB_Winning.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LB_Winning.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LB_Winning.ForeColor = Color.White;
-            LB_Winning.Location = new Point(985, 5);
+            LB_Winning.Location = new Point(980, 5);
             LB_Winning.Name = "LB_Winning";
-            LB_Winning.Size = new Size(106, 15);
+            LB_Winning.Size = new Size(141, 21);
             LB_Winning.TabIndex = 0;
             LB_Winning.Text = "ULTIMUL CÂȘTIG:";
+            LB_Winning.MouseClick += StopAnimationsByClick;
             // 
             // LB_BalanceText
             // 
             LB_BalanceText.AutoSize = true;
-            LB_BalanceText.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LB_BalanceText.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LB_BalanceText.ForeColor = Color.White;
-            LB_BalanceText.Location = new Point(145, 5);
+            LB_BalanceText.Location = new Point(143, 5);
             LB_BalanceText.Name = "LB_BalanceText";
-            LB_BalanceText.Size = new Size(64, 15);
+            LB_BalanceText.Size = new Size(87, 21);
             LB_BalanceText.TabIndex = 0;
             LB_BalanceText.Text = "BALANȚĂ:";
+            LB_BalanceText.MouseClick += StopAnimationsByClick;
             // 
             // LB_Status
             // 
             LB_Status.AutoSize = true;
-            LB_Status.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LB_Status.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LB_Status.ForeColor = Color.White;
-            LB_Status.Location = new Point(526, 5);
+            LB_Status.Location = new Point(496, 5);
             LB_Status.Name = "LB_Status";
-            LB_Status.Size = new Size(164, 15);
+            LB_Status.Size = new Size(220, 21);
             LB_Status.TabIndex = 0;
             LB_Status.Text = "VĂ RUGĂM PLASAȚI PARIUL";
             // 
@@ -423,6 +432,7 @@
             Top_Panel.Name = "Top_Panel";
             Top_Panel.Size = new Size(1210, 113);
             Top_Panel.TabIndex = 0;
+            Top_Panel.MouseClick += StopAnimationsByClick;
             // 
             // Logo_Picture
             // 
@@ -451,6 +461,7 @@
             Symbol_1.Size = new Size(230, 230);
             Symbol_1.TabIndex = 0;
             Symbol_1.TabStop = false;
+            Symbol_1.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_2
             // 
@@ -459,6 +470,7 @@
             Symbol_2.Size = new Size(230, 230);
             Symbol_2.TabIndex = 1;
             Symbol_2.TabStop = false;
+            Symbol_2.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_3
             // 
@@ -467,6 +479,7 @@
             Symbol_3.Size = new Size(230, 230);
             Symbol_3.TabIndex = 2;
             Symbol_3.TabStop = false;
+            Symbol_3.MouseClick += StopAnimationsByClick;
             // 
             // Rollbar_3
             // 
@@ -485,6 +498,7 @@
             Symbol_7.Size = new Size(230, 230);
             Symbol_7.TabIndex = 0;
             Symbol_7.TabStop = false;
+            Symbol_7.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_8
             // 
@@ -493,6 +507,7 @@
             Symbol_8.Size = new Size(230, 230);
             Symbol_8.TabIndex = 1;
             Symbol_8.TabStop = false;
+            Symbol_8.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_9
             // 
@@ -501,6 +516,7 @@
             Symbol_9.Size = new Size(230, 230);
             Symbol_9.TabIndex = 2;
             Symbol_9.TabStop = false;
+            Symbol_9.MouseClick += StopAnimationsByClick;
             // 
             // Rollbar_2
             // 
@@ -519,6 +535,7 @@
             Symbol_4.Size = new Size(230, 230);
             Symbol_4.TabIndex = 0;
             Symbol_4.TabStop = false;
+            Symbol_4.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_5
             // 
@@ -527,6 +544,7 @@
             Symbol_5.Size = new Size(230, 230);
             Symbol_5.TabIndex = 1;
             Symbol_5.TabStop = false;
+            Symbol_5.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_6
             // 
@@ -535,6 +553,7 @@
             Symbol_6.Size = new Size(230, 230);
             Symbol_6.TabIndex = 2;
             Symbol_6.TabStop = false;
+            Symbol_6.MouseClick += StopAnimationsByClick;
             // 
             // Rollbar_4
             // 
@@ -553,6 +572,7 @@
             Symbol_10.Size = new Size(230, 230);
             Symbol_10.TabIndex = 0;
             Symbol_10.TabStop = false;
+            Symbol_10.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_11
             // 
@@ -561,6 +581,7 @@
             Symbol_11.Size = new Size(230, 230);
             Symbol_11.TabIndex = 1;
             Symbol_11.TabStop = false;
+            Symbol_11.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_12
             // 
@@ -569,6 +590,7 @@
             Symbol_12.Size = new Size(230, 230);
             Symbol_12.TabIndex = 2;
             Symbol_12.TabStop = false;
+            Symbol_12.MouseClick += StopAnimationsByClick;
             // 
             // Rollbar_5
             // 
@@ -587,6 +609,7 @@
             Symbol_13.Size = new Size(230, 230);
             Symbol_13.TabIndex = 0;
             Symbol_13.TabStop = false;
+            Symbol_13.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_14
             // 
@@ -595,6 +618,7 @@
             Symbol_14.Size = new Size(230, 230);
             Symbol_14.TabIndex = 1;
             Symbol_14.TabStop = false;
+            Symbol_14.MouseClick += StopAnimationsByClick;
             // 
             // Symbol_15
             // 
@@ -603,6 +627,7 @@
             Symbol_15.Size = new Size(230, 230);
             Symbol_15.TabIndex = 2;
             Symbol_15.TabStop = false;
+            Symbol_15.MouseClick += StopAnimationsByClick;
             // 
             // WinningLinesAnimation
             // 
@@ -628,6 +653,7 @@
             Margin = new Padding(0);
             Name = "Game_UI";
             Size = new Size(1666, 916);
+            MouseClick += StopAnimationsByClick;
             Right_Panel.ResumeLayout(false);
             Left_Panel.ResumeLayout(false);
             Bottom_Panel.ResumeLayout(false);
@@ -687,11 +713,6 @@
         private Label LB_Status;
         private Label LB_LeiBalance;
         private PictureBox Logo_Picture;
-        private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_1;
-        private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_5;
-        private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_4;
-        private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_3;
-        private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_2;
         private Label LB_LeiWinning;
         private System.Windows.Forms.Timer WinningLinesAnimation;
         private Label LB_Balance;
@@ -700,6 +721,11 @@
         private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Gamble;
         private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_CashIn;
         private Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Spin;
+        public Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_1;
+        public Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_5;
+        public Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_4;
+        public Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_3;
+        public Keyboard_HeatMap.Toolbox.RoundEdgesButton BTN_Bet_2;
         public static Label LB_AmountWon;
     }
 }

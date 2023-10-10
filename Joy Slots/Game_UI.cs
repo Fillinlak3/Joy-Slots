@@ -11,7 +11,7 @@ namespace Joy_Slots
         public static List<Bitmap> SymbolsPictures;
         private static List<Bitmap> SpecialSymbolsPictures;
 #pragma warning restore
-        private Gamble_Winning gamble_Winning;
+        public Gamble_Winning gamble_Winning;
         private Menu game_menu;
 
         #region Game Structs
@@ -50,6 +50,27 @@ namespace Joy_Slots
             }
         }
         public static GameSettings Settings;
+
+        public struct KeyboardKeypressEvents
+        {
+            private bool m_crownAnimation = false;
+            /// <summary>
+            /// Disable the button press for rolling lines to prevent bug.
+            /// </summary>
+            public bool crownAnimation { get => this.m_crownAnimation; set => this.m_crownAnimation = value; }
+
+            private bool m_gamblingAvailable = false;
+            /// <summary>
+            /// If user has a current win that can be gambled.
+            /// </summary>
+            public bool gamblingAvailable { get => this.m_gamblingAvailable; set => this.m_gamblingAvailable = value; }
+
+            public KeyboardKeypressEvents()
+            {
+
+            }
+        }
+        public KeyboardKeypressEvents KeypressEvents;
 
         struct WinningLine
         {
@@ -213,6 +234,8 @@ namespace Joy_Slots
             {
                 game_menu.BetSettingsPanel.Controls[i].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
                 game_menu.BetSettingsPanel.Controls[i].Controls[0].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
+                game_menu.BetSettingsPanel.Controls[i].Cursor =
+                game_menu.BetSettingsPanel.Controls[i].Controls[0].Cursor = Cursors.Hand;
             }
             game_menu.VisibleChanged += (sender, e) => { Settings.CanSpin = BTN_Spin.Visible = !game_menu.Visible; };
             this.Controls.Add(game_menu);
@@ -244,20 +267,23 @@ namespace Joy_Slots
             BTN_CashIn.Visible = false;
             LB_Balance.Text = "100.00";
             Settings.CanSpin = true;
-            BTN_Spin.Focus();
+            Logo_Picture.Focus();
             UpdateTextsLocation();
         }
 
         /// <summary>
         /// Stop the spin.
         /// </summary>
-        private CancellationTokenSource? cancellationTokenSource;
+        public CancellationTokenSource? cancellationTokenSource;
         /// <summary>
         /// The button that activates the scrambling and rolling animation that
         /// can be stopped and then checks for win.
         /// </summary>
-        private async void BTN_Spin_Click(object sender, EventArgs e)
+        public async void BTN_Spin_Click(object sender, EventArgs e)
         {
+            // Preventing the rolling bug here.
+            if (KeypressEvents.crownAnimation) return;
+
             // If the user stops the spin (presses a second time on the button).
             if (String.IsNullOrWhiteSpace(LB_Status.Text) || cancellationTokenSource != null)
             {
@@ -279,8 +305,11 @@ namespace Joy_Slots
             if (last_amount_won != 0) { LB_Balance.Text = Math.Round(Double.Parse(LB_Balance.Text) + last_amount_won, 2).ToString("F2"); last_amount_won = 0; }
 
             // Clear all animations.
+            Logo_Picture.Focus();
             BTN_CashIn.Visible = false;
             BTN_Gamble.Visible = false;
+            KeypressEvents.gamblingAvailable = false;
+            KeypressEvents.crownAnimation = false;
             WinningLinesAnimation.Enabled = false;
             LB_Winning.Text = "ULTIMUL CÂȘTIG:";
             LB_Status.Text = "";
@@ -621,20 +650,18 @@ namespace Joy_Slots
         }
 
         /// <summary>
-        /// Disable the button press for rolling lines to prevent bug.
-        /// </summary>
-        private bool crownAnimation = false;
-        /// <summary>
         /// Set the betting amount by pressing on the buttons on the bottom page.
         /// </summary>
-        private void Set_Bet_Amount(object sender, EventArgs e)
+        public void Set_Bet_Amount(object sender, EventArgs e)
         {
+            if (Settings.CanSpin == false) { BTN_Spin_Click(sender, e); return; }
+
             BTN_Bet_1.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
             BTN_Bet_2.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
             BTN_Bet_3.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
             BTN_Bet_4.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
             BTN_Bet_5.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
-            BTN_Spin.Focus();
+            //Logo_Picture.Focus();
 
             BTN_Bet_1.Text = Math.Round(Settings.Credit_Value * 20, 2).ToString("F2");
             BTN_Bet_2.Text = Math.Round(Settings.Credit_Value * 50, 2).ToString("F2");
@@ -682,8 +709,6 @@ namespace Joy_Slots
             game_menu.Symbols5_5.Text = $"{Math.Round(Settings.Bet_Amount * 15, 2):F2} RON";
             #endregion
 
-            // Preventing the rolling bug here.
-            if (crownAnimation) return;
             BTN_Spin_Click(sender, e);
         }
 
@@ -1072,7 +1097,7 @@ namespace Joy_Slots
             {
                 BTN_Spin.Enabled = false;
                 BTN_Spin.Visible = false;
-                if(crown_roll_1_line || crown_roll_2_line || crown_roll_3_line) crownAnimation = true;
+                if (crown_roll_1_line || crown_roll_2_line || crown_roll_3_line) KeypressEvents.crownAnimation = true;
                 if (crown_roll[0] && crown_roll_1_line)
                 {
                     for (int i = 0; i < 3; i++)
@@ -1121,11 +1146,11 @@ namespace Joy_Slots
                         }
                     }
                 }
-                crownAnimation = false;
+                KeypressEvents.crownAnimation = false;
                 BTN_Spin.Image = Properties.Resources.Cash_In;
                 BTN_Spin.Enabled = true;
                 BTN_Spin.Visible = true;
-                BTN_Spin.Focus();
+                Logo_Picture.Focus();
 
                 LB_Winning.Text = "CÂȘTIG:";
                 last_amount_won = total_winning;
@@ -1150,46 +1175,47 @@ namespace Joy_Slots
                     }, cancellationToken);
                     // Play money-growing animation on AmountWon.
                     await Task.Run(async () =>
-                    {
-                        if (LB_AmountWon.InvokeRequired)
-                            await LB_AmountWon.Invoke((async () =>
-                            {
-                                double startAmount = 0.1;
-                                double endAmount = total_winning;
-                                int numIncrements = 100; // Number of increments in the animation
+                  {
+                      if (LB_AmountWon.InvokeRequired)
+                          await LB_AmountWon.Invoke((async () =>
+                          {
+                              double startAmount = 0.1;
+                              double endAmount = total_winning;
+                              int numIncrements = 100; // Number of increments in the animation
 
-                                // Calculate the increment value based on total_winning
-                                double incrementValue = (endAmount - startAmount) / numIncrements;
+                              // Calculate the increment value based on total_winning
+                              double incrementValue = (endAmount - startAmount) / numIncrements;
 
-                                double sum = 0;
-                                for (int i = 0; i <= numIncrements && !cancellationToken.IsCancellationRequested; i++)
-                                {
-                                    sum = startAmount + i * incrementValue;
-                                    LB_AmountWon.Text = sum.ToString("F2");
-                                    UpdateTextsLocation();
-                                    if (sum >= total_winning - 0.001)
-                                        break;
+                              double sum = 0;
+                              for (int i = 0; i <= numIncrements && !cancellationToken.IsCancellationRequested; i++)
+                              {
+                                  sum = startAmount + i * incrementValue;
+                                  LB_AmountWon.Text = sum.ToString("F2");
+                                  UpdateTextsLocation();
+                                  if (sum >= total_winning - 0.001)
+                                      break;
 
-                                    await Task.Delay(30);
-                                }
+                                  await Task.Delay(30);
+                              }
 
-                                cancellationTokenSource = null;
-                                LB_AmountWon.Text = total_winning.ToString("F2");
-                                UpdateTextsLocation();
+                              cancellationTokenSource = null;
+                              LB_AmountWon.Text = total_winning.ToString("F2");
+                              UpdateTextsLocation();
 
-                                BTN_Spin.Image = Properties.Resources.Spin_Button1;
-                                BTN_CashIn.Visible = true;
-                                BTN_Gamble.Visible = true;
+                              BTN_Spin.Image = Properties.Resources.Spin_Button1;
+                              BTN_CashIn.Visible = true;
+                              BTN_Gamble.Visible = true;
+                              KeypressEvents.gamblingAvailable = true;
 
-                                winning_sound.Stop();
-                                // Play bank-in sound.
-                                winning_sound.Init(new WaveFileReader(Properties.Resources.bank_in));
-                                winning_sound.Play();
+                              winning_sound.Stop();
+                              // Play bank-in sound.
+                              winning_sound.Init(new WaveFileReader(Properties.Resources.bank_in));
+                              winning_sound.Play();
 
-                                while (winning_sound.PlaybackState == PlaybackState.Playing)
-                                    await Task.Delay(100);
-                            }));
-                    }, cancellationToken);
+                              while (winning_sound.PlaybackState == PlaybackState.Playing)
+                                  await Task.Delay(100);
+                          }));
+                  }, cancellationToken);
                 }
             }
             else LB_Status.Text = "VĂ RUGĂM PLASAȚI PARIUL";
@@ -1277,9 +1303,11 @@ namespace Joy_Slots
             DrawLine(line_index++);
         }
 
-        private async void BTN_Gamble_Click(object sender, EventArgs e)
+        public async void BTN_Gamble_Click(object sender, EventArgs e)
         {
             LB_Status.Focus();
+            KeypressEvents.gamblingAvailable = false;
+            Settings.CanSpin = false;
 
             BTN_CashIn.Visible = false;
             BTN_Gamble.Visible = false;
@@ -1297,8 +1325,9 @@ namespace Joy_Slots
             double balance = Math.Round(Double.Parse(LB_Balance.Text), 2);
             BTN_CashIn.Visible = false;
             BTN_Gamble.Visible = false;
+            KeypressEvents.gamblingAvailable = false;
             BTN_Spin.Image = Properties.Resources.Cash_In;
-            BTN_Spin.Focus();
+            Logo_Picture.Focus();
 
             if (last_amount_won == 0) { LB_AmountWon.Visible = LB_LeiWinning.Visible = false; return; }
 
@@ -1341,18 +1370,17 @@ namespace Joy_Slots
 
         private void ReturnFromGamble(object sender, EventArgs e)
         {
-            UpdateTextsLocation();
-
             if (gamble_Winning.Visible == true) { Settings.CanSpin = BTN_Spin.Visible = false; return; }
             LB_Status.Text = "VĂ RUGĂM PLASAȚI PARIUL";
             Settings.CanSpin = BTN_Spin.Visible = true;
-            BTN_Spin.Focus();
+            Logo_Picture.Focus();
 
-            if (last_amount_won == 0) { LB_Winning.Text = "ULTIMUL CÂȘTIG:"; LB_AmountWon.Visible = LB_LeiWinning.Visible = false; return; }
+            if (last_amount_won == 0) { LB_Winning.Text = "ULTIMUL CÂȘTIG:"; LB_AmountWon.Visible = LB_LeiWinning.Visible = false; UpdateTextsLocation(); return; }
+            UpdateTextsLocation();
             BTN_CashIn_Click(sender, e);
         }
 
-        private void BTN_Menu_Click(object sender, EventArgs e)
+        public void BTN_Menu_Click(object sender, EventArgs e)
         {
             if (game_menu.Visible == false)
             {
@@ -1366,7 +1394,7 @@ namespace Joy_Slots
 
         private void BTN_Volume_Click(object sender, EventArgs e)
         {
-            BTN_Spin.Focus();
+            Logo_Picture.Focus();
 
             switch (Settings.Volume_Level)
             {
@@ -1396,6 +1424,11 @@ namespace Joy_Slots
                     Settings.Volume_Level = 1.0f;
                     break;
             }
+        }
+
+        private void StopAnimationsByClick(object sender, MouseEventArgs e)
+        {
+            if (cancellationTokenSource != null) BTN_Spin_Click(sender, e);
         }
     }
 }
