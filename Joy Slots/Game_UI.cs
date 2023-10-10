@@ -621,6 +621,10 @@ namespace Joy_Slots
         }
 
         /// <summary>
+        /// Disable the button press for rolling lines to prevent bug.
+        /// </summary>
+        private bool crownAnimation = false;
+        /// <summary>
         /// Set the betting amount by pressing on the buttons on the bottom page.
         /// </summary>
         private void Set_Bet_Amount(object sender, EventArgs e)
@@ -678,6 +682,8 @@ namespace Joy_Slots
             game_menu.Symbols5_5.Text = $"{Math.Round(Settings.Bet_Amount * 15, 2):F2} RON";
             #endregion
 
+            // Preventing the rolling bug here.
+            if (crownAnimation) return;
             BTN_Spin_Click(sender, e);
         }
 
@@ -1066,6 +1072,7 @@ namespace Joy_Slots
             {
                 BTN_Spin.Enabled = false;
                 BTN_Spin.Visible = false;
+                if(crown_roll_1_line || crown_roll_2_line || crown_roll_3_line) crownAnimation = true;
                 if (crown_roll[0] && crown_roll_1_line)
                 {
                     for (int i = 0; i < 3; i++)
@@ -1114,6 +1121,7 @@ namespace Joy_Slots
                         }
                     }
                 }
+                crownAnimation = false;
                 BTN_Spin.Image = Properties.Resources.Cash_In;
                 BTN_Spin.Enabled = true;
                 BTN_Spin.Visible = true;
