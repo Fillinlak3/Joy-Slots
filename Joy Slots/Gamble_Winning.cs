@@ -97,7 +97,7 @@ namespace Joy_Slots
 
                 MainCard.Image = Properties.Resources.cards_flickering;
                 LB_Istoric.Focus();
-                gamble_tries = 3;
+                gamble_tries = 5;
                 LB_IncercariRamase.Text = gamble_tries.ToString();
                 LB_SumaGamble.Text = Game_UI.LB_AmountWon.Text;
                 LB_GambleCastig.Text = Math.Round(Double.Parse(LB_SumaGamble.Text) * 2, 2).ToString("F2");

@@ -59,11 +59,23 @@ namespace Joy_Slots
             /// </summary>
             public bool crownAnimation { get => this.m_crownAnimation; set => this.m_crownAnimation = value; }
 
+            private bool m_amountWonAnimation = false;
+            /// <summary>
+            /// Disable the button press for rolling lines to prevent bug.
+            /// </summary>
+            public bool amountWonAnimation { get => this.m_amountWonAnimation; set => this.m_amountWonAnimation = value; }
+
             private bool m_gamblingAvailable = false;
             /// <summary>
             /// If user has a current win that can be gambled.
             /// </summary>
             public bool gamblingAvailable { get => this.m_gamblingAvailable; set => this.m_gamblingAvailable = value; }
+
+            private bool m_changeableBet = false;
+            /// <summary>
+            /// Let the user change the bet if in idle.
+            /// </summary>
+            public bool changeableBet { get => this.m_changeableBet; set => this.m_changeableBet = value; }
 
             public KeyboardKeypressEvents()
             {
@@ -207,6 +219,7 @@ namespace Joy_Slots
             InitializeComponent();
             Settings = new GameSettings();
             Settings.SetCreditValue(0.01f);
+            KeypressEvents = new KeyboardKeypressEvents();
 
             // gamble_Winning
             gamble_Winning = new Gamble_Winning();
@@ -232,8 +245,8 @@ namespace Joy_Slots
             game_menu.Size = new Size(1210, 690);
             for (int i = 0; i < 6; i++)
             {
-                game_menu.BetSettingsPanel.Controls[i].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
-                game_menu.BetSettingsPanel.Controls[i].Controls[0].Click += (sender, e) => Set_Bet_Amount(BTN_Bet_1, e);
+                game_menu.BetSettingsPanel.Controls[i].Click += (sender, e) => { KeypressEvents.changeableBet = true; Set_Bet_Amount(BTN_Bet_1, e); KeypressEvents.changeableBet = false; };
+                game_menu.BetSettingsPanel.Controls[i].Controls[0].Click += (sender, e) => { KeypressEvents.changeableBet = true; Set_Bet_Amount(BTN_Bet_1, e); KeypressEvents.changeableBet = false; };
                 game_menu.BetSettingsPanel.Controls[i].Cursor =
                 game_menu.BetSettingsPanel.Controls[i].Controls[0].Cursor = Cursors.Hand;
             }
@@ -260,12 +273,14 @@ namespace Joy_Slots
             WinningLines = new List<WinningLine>();
             WinningLinesAnimation.Enabled = false;
 
+            KeypressEvents.changeableBet = true;
             Set_Bet_Amount(BTN_Bet_1, null!);
+            KeypressEvents.changeableBet = false;
             LB_LeiWinning.Visible = false;
             LB_AmountWon.Visible = false;
             BTN_Gamble.Visible = false;
             BTN_CashIn.Visible = false;
-            LB_Balance.Text = "100.00";
+            LB_Balance.Text = "1000.00";
             Settings.CanSpin = true;
             Logo_Picture.Focus();
             UpdateTextsLocation();
@@ -654,20 +669,20 @@ namespace Joy_Slots
         /// </summary>
         public void Set_Bet_Amount(object sender, EventArgs e)
         {
-            if (Settings.CanSpin == false) { BTN_Spin_Click(sender, e); return; }
-
-            BTN_Bet_1.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
-            BTN_Bet_2.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
-            BTN_Bet_3.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
-            BTN_Bet_4.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
-            BTN_Bet_5.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
-            //Logo_Picture.Focus();
+            Logo_Picture.Focus();
+            if ((Settings.CanSpin == false && KeypressEvents.changeableBet == false) || KeypressEvents.amountWonAnimation) { BTN_Spin_Click(sender, e); return; }
 
             BTN_Bet_1.Text = Math.Round(Settings.Credit_Value * 20, 2).ToString("F2");
             BTN_Bet_2.Text = Math.Round(Settings.Credit_Value * 50, 2).ToString("F2");
             BTN_Bet_3.Text = Math.Round(Settings.Credit_Value * 100, 2).ToString("F2");
             BTN_Bet_4.Text = Math.Round(Settings.Credit_Value * 300, 2).ToString("F2");
             BTN_Bet_5.Text = Math.Round(Settings.Credit_Value * 500, 2).ToString("F2");
+
+            BTN_Bet_1.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
+            BTN_Bet_2.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
+            BTN_Bet_3.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
+            BTN_Bet_4.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
+            BTN_Bet_5.BackgroundImage = Properties.Resources.Placebet_Buttons_Background;
 
             if (sender.GetHashCode() == BTN_Bet_1.GetHashCode())
             { Settings.SetBetAmount(Math.Round(Settings.Credit_Value * 20, 2)); BTN_Bet_1.BackgroundImage = Properties.Resources.Placebet_Buttons_Marked_Background; }
@@ -709,7 +724,7 @@ namespace Joy_Slots
             game_menu.Symbols5_5.Text = $"{Math.Round(Settings.Bet_Amount * 15, 2):F2} RON";
             #endregion
 
-            BTN_Spin_Click(sender, e);
+            if (Settings.CanSpin) BTN_Spin_Click(sender, e);
         }
 
         /// <summary>
@@ -1163,6 +1178,7 @@ namespace Joy_Slots
                 cancellationTokenSource = new CancellationTokenSource();
                 CancellationToken cancellationToken = cancellationTokenSource.Token;
 
+                KeypressEvents.amountWonAnimation = true;
                 using (WaveOutEvent winning_sound = new WaveOutEvent())
                 {
                     // Play winning sound.
@@ -1206,6 +1222,7 @@ namespace Joy_Slots
                               BTN_CashIn.Visible = true;
                               BTN_Gamble.Visible = true;
                               KeypressEvents.gamblingAvailable = true;
+                              KeypressEvents.amountWonAnimation = false;
 
                               winning_sound.Stop();
                               // Play bank-in sound.
@@ -1306,6 +1323,7 @@ namespace Joy_Slots
         public async void BTN_Gamble_Click(object sender, EventArgs e)
         {
             LB_Status.Focus();
+            LB_Status.Text = "";
             KeypressEvents.gamblingAvailable = false;
             Settings.CanSpin = false;
 
@@ -1331,6 +1349,7 @@ namespace Joy_Slots
 
             if (last_amount_won == 0) { LB_AmountWon.Visible = LB_LeiWinning.Visible = false; return; }
 
+            KeypressEvents.amountWonAnimation = true;
             cancellationTokenSource = new CancellationTokenSource();
             CancellationToken cancellationToken = cancellationTokenSource.Token;
             Task.Run(async () =>
@@ -1363,6 +1382,7 @@ namespace Joy_Slots
                         LB_AmountWon.Text = Math.Round(last_amount_won, 2).ToString("F2");
                         LB_Balance.Text = Math.Round(balance + last_amount_won, 2).ToString("F2");
                         last_amount_won = balance = 0;
+                        KeypressEvents.amountWonAnimation = false;
                         UpdateTextsLocation();
                     });
             }, cancellationToken);
